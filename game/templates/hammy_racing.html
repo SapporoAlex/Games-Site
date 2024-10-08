@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <a href="{% url 'select_game' %}"><h2 id="exit-button">Exit</h2></a>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Racing Game</title>
+    <style>
+        #exit-button {
+            position: fixed;
+            z-index: 1000;
+            background-color: #ff6347;
+            color: #fff;
+            right: 50px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+    </style>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        canvas {
+            display: block;
+            background-color: #87CEEB;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    <script src="{% static 'Hammy-Racing-2024/game.js' %}"></script>
+</body>
+</html>

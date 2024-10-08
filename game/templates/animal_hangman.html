@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman Game</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'animal-hangman/style.css' %}">
+</head>
+<body>
+    <div id="title-box">
+        <h1 id="title">Animal Hangman</h1>
+    </div>
+    <a href="{% url 'select_game' %}"><h2 id="exit-button">Exit</h2></a>
+    <div id="stick-figure-box">
+        {% if word %}
+            <pre><img src="{% static 'animal-hangman/game_images/'|add:word|add:'.jpg' %}" class="zoomed-image-{{ guessed_wrong_amount }}" alt="hint"></pre>
+        {% endif %}
+    </div>
+
+    <div id="word-tiles-box">
+        <p id="word-tiles">{{ word_tiles }}</p>
+    </div>
+    
+    <div id="guessed-box">
+        <p id="guessed-letters">{{ guessed_letters }}</p>
+    </div>
+
+    <div id="message-box">
+        {% if error %}
+            <p style="color:red;">{{ error }}</p>
+        {% endif %}
+        {% if message %}
+            <p>{{ message }}</p>
+        {% endif %}
+    </div>
+
+    <div id="keyboard">
+        <!-- Add keyboard buttons dynamically with JavaScript -->
+    </div>
+
+    <script src="{% static 'animal-hangman/game.js' %}"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>

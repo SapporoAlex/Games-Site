@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'ap/styles.css' %}">
+    <title>African President</title>
+  </head>
+  <body>
+    <div id="bg"></div>
+    <div id="game-title">
+        <h1 id="game-title-text">AFRICAN PRESIDENT</h1>
+        <a href="{% url 'select_game' %}"><h2 id="exit-button">Exit</h2></a>
+    </div>
+    <div id="foreword-box">
+        <h2>Foreword</h2>
+        <p>In the late 20th century, many African countries moved towards independence from their colonial past. 
+            For many of these countries, it would prove to be a challenging path to democracy and national sovereignty. 
+            Countries drawn up on maps by foreign empires rarely create peaceful boundries. 
+            The leaders of these new nations had to heal fractured communities, and build infrastructure, 
+            while supressing violent rebellions and avoiding assassination. African President is a fictionalized game that 
+            respectfully tries to recreate the difficult circumstances faced by some of history's lesser known leaders.
+            Please enjoy.</p>
+        <button id="start-button">Start</button>
+    </div>
+
+    <div id="game">
+        <div id="image-stats">
+            <div id="left-side">
+                <div id="info-text">
+                    Welcome new African President. It is 1965, and you are the newly elected leader of a small African country that has just gained independance from a European Empire. All of your actions will have consequences to your nation. What will your first order of business be?
+                </div>
+                <div id="stats-and-controls">
+                <table id="stats-box">
+                    <tr>
+                        <td>Public Order</td>
+                        <td>
+                          <div class="progress-container">
+                            <div id="publicOrderValue" class="progress-bar" style="width: 50%;"></div>
+                            <div id="publicOrderValueRemainder" class="progress-bar" style="width: 50%;"></div>
+                            <span id="publicOrderValueText">50</span>%
+                          </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Democracy</td>
+                        <td>
+                            <div class="progress-container">
+                            <div id="democracyValue" class="progress-bar" style="width: 50%;"></div>
+                            <div id="democracyValueRemainder" class="progress-bar" style="width: 50%;"></div>
+                            <span id="democracyValueText">50</span>%
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Law</td>
+                        <td>
+                            <div class="progress-container">
+                            <div id="lawValue" class="progress-bar" style="width: 50%;"></div>
+                            <div id="lawValueRemainder" class="progress-bar" style="width: 50%;"></div>
+                            <span id="lawValueText">50</span>%
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Military Strength</td>
+                        <td>
+                            <div class="progress-container">
+                            <div id="militaryStrengthValue" class="progress-bar" style="width: 50%;"></div>
+                            <div id="militaryStrengthValueRemainder" class="progress-bar" style="width: 50%;"></div>
+                            <span id="militaryStrengthValueText">50</span>%
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Personal Security</td>
+                        <td>
+                            <div class="progress-container">
+                            <div id="personalSecurityValue" class="progress-bar" style="width: 50%;"></div>
+                            <div id="personalSecurityValueRemainder" class="progress-bar" style="width: 50%;"></div>
+                            <span id="personalSecurityText">50</span>%
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Rebel Strength</td>
+                        <td>
+                            <div class="progress-container">
+                            <div id="rebelStrengthValue" class="progress-bar" style="width: 50%;"></div>
+                            <div id="rebelStrengthValueRemainder" class="progress-bar" style="width: 50%;"></div>
+                            <span id="rebelStrengthValueText">50</span>%
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Funds</td>
+                        <td><span id="fundsValueText">500</span></td>
+                    </tr>
+                    <tr>
+                        <td>Day</td>
+                        <td><span id="dayValueText">1</span></td>
+                    </tr>
+                    <tr>
+                        <td>Time</td>
+                        <td><span id="timeValueText">morning</span></td>
+                    </tr>
+                </table>
+
+                <div id="controls">
+                    <button id="button1">Meet with Public</button>
+                    <button id="button2">Meet with Generals</button>
+                    <button id="button3">Meet with Rebels</button>
+                    <button id="button4">Meet with Police Chief</button>
+                    <button id="button5">Meet with Bank</button>
+                    <button id="button6">Meet with Personal Security</button>
+                </div>
+            </div>
+
+            </div>
+
+            <div id="game-image-box">
+                <img src="{% static 'ap/african president images/office.jpg' %}" id="game-image">
+            </div>
+
+
+        </div>
+
+
+    </div>
+    <script src="{% static 'ap/script.js' %}"></script>
+</body>
+</html>

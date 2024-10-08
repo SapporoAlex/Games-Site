@@ -1,0 +1,120 @@
+/* Basic reset */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#title {
+    padding: 10px;
+}
+
+#exit-button {
+    position: fixed;
+    z-index: 1000;
+    background-color: #ffffff;
+    color: #000000;
+    right: 50px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+#title-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    top: 0;
+    background-color: #000;
+    color: white;
+}
+
+#stick-figure-box {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    width: 400px; /* Set the desired width */
+    height: 400px; /* Set the desired height */
+    overflow: hidden; /* Hide any overflow */
+    border: 2px solid #000;
+}
+
+
+#word-tiles-box {
+    text-align: center;
+    font-size: 2rem;
+    margin: 20px 0;
+}
+
+#guessed-box {
+    text-align: center;
+    margin: 10px 0;
+}
+
+#message-box {
+    text-align: center;
+    margin: 10px 0;
+}
+
+#keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.keyboard-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.keyboard-button:hover {
+    background-color: #0056b3;
+}
+
+
+.zoomed-image-0 {
+    width: 400%; /* Set to 100% of the container initially */
+    height: auto;
+    transform: scale(50); /* Scale the image up */
+}
+
+.zoomed-image-1 {
+    width: 100%; /* Set to 100% of the container initially */
+    transform: scale(40); /* Scale the image up */
+}
+
+.zoomed-image-2 {
+    width: 100%; /* Set to 100% of the container initially */
+    transform: scale(30); /* Scale the image up */
+}
+
+.zoomed-image-3 {
+    width: 100%; /* Set to 100% of the container initially */
+    transform: scale(20); /* Scale the image up */
+}
+
+.zoomed-image-4 {
+    width: 100%; /* Set to 100% of the container initially */
+    transform: scale(10); /* Scale the image up */
+}
+
+.zoomed-image-5 {
+    width: 100%; /* Set to 100% of the container initially */
+    transform: scale(1); /* Scale the image up */
+}
