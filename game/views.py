@@ -1,10 +1,14 @@
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
+from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.http import JsonResponse
+from .models import Leaderboard
 import random
+import json
+
 
 games = ['Animal Hangman', 'African President', 'Hammy Racing']
 animals = ['tiger', 'elephant', 'giraffe', 'hippopotamus', 'cheetah']
@@ -24,6 +28,10 @@ def signup(request):
         form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
 
+def logout_view(request):
+    auth_logout(request)  # Logs out the user
+    return redirect('home')  # Redirects to the 'home' view
+
 def home(request):
     return render(request, 'home.html')
 
@@ -33,9 +41,9 @@ def select_game(request):
 
 def animal_hangman(request):
     if request.method == "POST":
-
-        # Process the player's guess
-        guess = request.POST.get('guess', '').lower()
+        # Parse JSON data from the request body
+        data = json.loads(request.body)
+        guess = data.get('guess', '').lower()
 
         # Validate guess
         if len(guess) != 1 or not guess.isalpha():
@@ -72,17 +80,22 @@ def animal_hangman(request):
             return JsonResponse({
                 'word_tiles': request.session['word_tiles'],
                 'guessed_letters': guessed_letters,
+                'guessed_wrong_amount': 5,
                 'message': f'You lost! The word was {word}. {wrong_message}',
                 'game_over': True,
             })
 
         # Check for winning condition
         if '_' not in request.session['word_tiles']:
+            leaderboard, created = Leaderboard.objects.get_or_create(user=request.user)
+            leaderboard.animal_hangman_games_won += 1
+            leaderboard.save()
             return JsonResponse({
                 'word_tiles': request.session['word_tiles'],
                 'guessed_letters': guessed_letters,
                 'message': 'You won!',
                 'game_over': True,
+                
             })
 
         # Continue the game
@@ -93,7 +106,6 @@ def animal_hangman(request):
             'message': 'Keep guessing!',
             'game_over': False,
         })
-
     else:
         # Pick a random word from the selected category
         word = random.choice(animals)
@@ -118,4 +130,6 @@ def hammy_racing(request):
     return render(request, 'hammy_racing.html')
 
 def leaderboard(request):
-    return render(request, 'leaderboard.html')
+    # Get all leaderboard entries, ordered by games won in descending order
+    leaderboard_entries = Leaderboard.objects.order_by('-animal_hangman_games_won')
+    return render(request, 'leaderboard.html', {'leaderboard_entries': leaderboard_entries})

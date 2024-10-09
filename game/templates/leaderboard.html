@@ -1,6 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
 {% load static %}
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <title>Leaderboard</title>
 </head>
-<h1>Leaderboard</h1>
-<p>Leaderboard will be implemented soon!</p>
+<div>
+    <a href="{% url 'home' %}">Home</a>
+</div>
+<body>
+    <h1>Leaderboard</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Username</th>
+                <th>A.P.</th>
+                <th>A.H.</th>
+                <th>H.R.</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in leaderboard_entries %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ entry.user.username }}</td>
+                    <td>{{ entry.african_president_games_won }}</td>
+                    <td>{{ entry.animal_hangman_games_won }}</td>
+                    <td>{{ entry.hammy_racing_games_won }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5">No results found.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

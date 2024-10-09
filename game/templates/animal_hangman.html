@@ -15,7 +15,7 @@
     <a href="{% url 'select_game' %}"><h2 id="exit-button">Exit</h2></a>
     <div id="stick-figure-box">
         {% if word %}
-            <pre><img src="{% static 'animal-hangman/game_images/'|add:word|add:'.jpg' %}" class="zoomed-image-{{ guessed_wrong_amount }}" alt="hint"></pre>
+            <pre><img src="{% static 'animal-hangman/game_images/'|add:word|add:'.jpg' %}" class="zoomed-image-{{ guessed_wrong_amount }}" id="zoomed-img" alt="hint"></pre>
         {% endif %}
     </div>
 
@@ -39,6 +39,9 @@
     <div id="keyboard">
         <!-- Add keyboard buttons dynamically with JavaScript -->
     </div>
+    <form method="POST" id="hangman-form">
+        {% csrf_token %}
+    </form>
 
     <script src="{% static 'animal-hangman/game.js' %}"></script> <!-- Link to your JavaScript file -->
 </body>
