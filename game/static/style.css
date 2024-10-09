@@ -1,10 +1,23 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #0d0d1a;
+    color:  white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+#nav-bar {
+    display: block;
+    top: 0;
+    width: 100%;
+    background-color: #02020e;
+    color: white;
+}
+
+#home-intro {
+    width: 100%;
+    position: relative;
 }
