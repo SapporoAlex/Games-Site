@@ -5,20 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
-    <title>Free Apps</title>
+    <title>Hamster Games</title>
 </head>
+<body>
 <span id="nav-bar">
+    <a href="{% url 'home' %}"><img src="{% static 'main/logo.png' %}" id="game-img"></a>
+    <h1>Hamster Games</h1>
     {% if user.is_authenticated %}
     <p>Welcome, {{ user.username }}! </p>
-    <a href="{% url 'logout' %}">Logout</a>
+    <a class="button" href="{% url 'logout' %}">Log out</a>
     {% else %}
-    <a href="{% url 'login' %}">Login</a>
-    <a href="{% url 'signup' %}">Sign Up</a>
+    <a class="button" href="{% url 'login' %}">Log in</a>
+    <a class="button" href="{% url 'signup' %}">Sign Up</a>
     {% endif %}
 </span>
-
-<body>
-    <a href="{% url 'select_game' %}">Library</a>
-    <a href="{% url 'leaderboard' %}">Leaderboard</a>
+<span id="home-options">
+    <a href="{% url 'select_game' %}"><img src="{% static 'main/game.jpg' %}" id="select-img"></a>
+    <a href="{% url 'leaderboard' %}"><img src="{% static 'main/crown.jpg' %}" id="crown-img"></a>
+</span>
 </body>
 </html>

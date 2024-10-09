@@ -1,23 +1,159 @@
+:root {
+    --background-color: #202025;
+    --nav-bar-bg: #252535;
+    --text-color: rgb(247, 247, 247);
+    --button-idle: #ff9100;
+    --button-active: #ff5100;
+    --tertiary-color: #003366;
+    --text-dark: rgb(0, 0, 0);
+    --font-size-large: 24px;
+    --font-size-medium: 16px;
+    --font-size-small: 12px;
+}
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #0d0d1a;
-    color:  white;
+    padding: 0;
+    background-color: var(--background-color);
+    color:  var(--text-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
+    font-family: 'Futura', 'Noto Sans JP', sans-serif;
 }
 
+#game-img {
+    width: 50px;
+    height: auto;
+}
+    
+
 #nav-bar {
-    display: block;
-    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    text-decoration: none;
     width: 100%;
-    background-color: #02020e;
-    color: white;
+    height: 50px;
+    background-color: var(--nav-bar-bg);
+    color:  var(--text-color);
+    z-index: 1;
+    padding: 5px;
+}
+
+.button {
+    position: relative;
+    background-color: var(--button-idle);
+    justify-content: center;
+    align-content: center;
+    border: none;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 25px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: var(--font-size-medium);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+    background-color: var(--button-active);
+    transform: scale(1.05);
+}
+
+.button:active {
+    background-color: var(--button-active);
+    transform: scale(0.98);
+}
+
+.button:focus {
+    outline: 2px dashed var(--button-active);
 }
 
 #home-intro {
     width: 100%;
     position: relative;
+}
+
+#home-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+}
+
+#home-options img {
+    padding: 10px;
+}
+
+
+/* This is where the games will be */
+#library {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.game-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.game-item img:hover {
+    transform: scale(1.05);
+}
+
+th img {
+    width: 25%;
+    height: auto;
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    background-color: var(--background-color);
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: var(--nav-bar-bg);
+    font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--tertiary-color);
 }

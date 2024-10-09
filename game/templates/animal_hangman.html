@@ -4,15 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hangman Game</title>
+    <title>Animal Hangman</title>
 
     <link rel="stylesheet" type="text/css" href="{% static 'animal-hangman/style.css' %}">
 </head>
 <body>
-    <div id="title-box">
-        <h1 id="title">Animal Hangman</h1>
-    </div>
-    <a href="{% url 'select_game' %}"><h2 id="exit-button">Exit</h2></a>
+    <span id="nav-bar">
+        <a href="{% url 'home' %}"><img src="{% static 'main/logo.png' %}" id="game-img"></a>
+        <h2 id="title">Animal Hangman</h2>
+        <a class="button" href="{% url 'select_game' %}">Exit</a>
+    </span>
+
     <div id="stick-figure-box">
         {% if word %}
             <pre><img src="{% static 'animal-hangman/game_images/'|add:word|add:'.jpg' %}" class="zoomed-image-{{ guessed_wrong_amount }}" id="zoomed-img" alt="hint"></pre>

@@ -9,28 +9,25 @@
 </head>
 
     <span id="nav-bar">
-        <div>
-            <a href="{% url 'home' %}">Home</a>
-        </div>
+        <a href="{% url 'home' %}"><img src="{% static 'main/logo.png' %}" id="game-img"></a>
+        <h1>Leaderboard</h1>
         {% if user.is_authenticated %}
-        <p>Welcome, {{ user.username }}! </p>
-        <a href="{% url 'logout' %}">Logout</a>
+        <a class="button" href="{% url 'logout' %}">Log out</a>
         {% else %}
-        <a href="{% url 'login' %}">Login</a>
-        <a href="{% url 'signup' %}">Sign Up</a>
+        <a class="button" href="{% url 'login' %}">Log in</a>
+        <a class="button" href="{% url 'signup' %}">Sign Up</a>
         {% endif %}    
     </span>
 
 <body>
-    <h1>Leaderboard</h1>
     <table>
         <thead>
             <tr>
                 <th>Rank</th>
                 <th>Username</th>
-                <th>A.P.</th>
-                <th>A.H.</th>
-                <th>H.R.</th>
+                <th><img src="{% static 'main/africanPresident.jpg' %}"></th>
+                <th><img src="{% static 'main/animalHangman.jpg' %}"></th>
+                <th><img src="{% static 'main/hammyRacing.jpg' %}"></th>
             </tr>
         </thead>
         <tbody>

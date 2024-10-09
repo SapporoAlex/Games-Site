@@ -1,3 +1,17 @@
+:root {
+    --background-color: #202025;
+    --nav-bar-bg: #252535;
+    --text-color: rgb(247, 247, 247);
+    --button-idle: #ff9100;
+    --button-active: #ff5100;
+    --tertiary-color: #003366;
+    --text-dark: rgb(0, 0, 0);
+    --font-size-large: 24px;
+    --font-size-medium: 16px;
+    --font-size-small: 12px;
+}
+
+
 /* Basic reset */
 body {
     margin: 0;
@@ -10,30 +24,50 @@ body {
     align-items: center;
 }
 
-#title {
-    padding: 10px;
-}
 
-#exit-button {
-    position: fixed;
-    z-index: 1000;
-    background-color: #ffffff;
-    color: #000000;
-    right: 50px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    display: inline-block;
-}
-
-#title-box {
+#nav-bar {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    text-decoration: none;
     width: 100%;
-    top: 0;
-    background-color: #000;
-    color: white;
+    height: 50px;
+    background-color: var(--nav-bar-bg);
+    color:  var(--text-color);
+    z-index: 1;
+    padding: 5px;
+}
+
+.button {
+    position: relative;
+    background-color: var(--button-idle);
+    justify-content: center;
+    align-content: center;
+    border: none;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 25px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: var(--font-size-medium);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+    background-color: var(--button-active);
+    transform: scale(1.05);
+}
+
+.button:active {
+    background-color: var(--button-active);
+    transform: scale(0.98);
+}
+
+.button:focus {
+    outline: 2px dashed var(--button-active);
 }
 
 #stick-figure-box {
@@ -84,32 +118,37 @@ body {
 
 
 .zoomed-image-0 {
-    width: 400%; /* Set to 100% of the container initially */
+    width: 100%; /* Set to 100% of the container initially */
     height: auto;
-    transform: scale(50); /* Scale the image up */
-}
-
-.zoomed-image-1 {
-    width: 350%; /* Set to 100% of the container initially */
-    transform: scale(40); /* Scale the image up */
-}
-
-.zoomed-image-2 {
-    width: 300%; /* Set to 100% of the container initially */
-    transform: scale(30); /* Scale the image up */
-}
-
-.zoomed-image-3 {
-    width: 250%; /* Set to 100% of the container initially */
     transform: scale(20); /* Scale the image up */
 }
 
-.zoomed-image-4 {
-    width: 200%; /* Set to 100% of the container initially */
+.zoomed-image-1 {
+    width: 100%; /* Set to 100% of the container initially */
+    transform: scale(15); /* Scale the image up */
+}
+
+.zoomed-image-2 {
+    width: 100%; /* Set to 100% of the container initially */
     transform: scale(10); /* Scale the image up */
+}
+
+.zoomed-image-3 {
+    width: 100%; /* Set to 100% of the container initially */
+    transform: scale(5); /* Scale the image up */
+}
+
+.zoomed-image-4 {
+    width: 100%; /* Set to 100% of the container initially */
+    transform: scale(3); /* Scale the image up */
 }
 
 .zoomed-image-5 {
     width: 100%; /* Set to 100% of the container initially */
     transform: scale(1); /* Scale the image up */
+}
+
+#game-img {
+    width: 50px;
+    height: auto;
 }

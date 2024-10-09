@@ -1,5 +1,5 @@
 const gameImage = document.getElementById("zoomed-img");
-
+const messageBox = document.getElementById("message-box");
 
 
 // Create and display the keyboard dynamically
@@ -31,14 +31,17 @@ function handleGuess(guess) {
         if (data.error) {
             alert(data.error);
         } else {
+            // Update the word tiles on the screen
             document.getElementById('word-tiles').textContent = data.word_tiles;
             document.getElementById('guessed-letters').textContent = data.guessed_letters;
-            gameImage.className = `zoomed-image-${data.guessed_wrong_amount}`;
-
+    
+            // Handle the game-over state
             if (data.game_over) {
-                gameImage.className = `zoomed-image-5`;
                 alert(data.message);
-                location.reload();  // Reload the page to start a new game
+                gameImage.className = "zoomed-image-5";
+                setTimeout(() => {
+                    location.reload();  // Reload the page after a delay to allow the user to see the message
+                }, 2000);  // Delay of 2 seconds
             }
         }
     })

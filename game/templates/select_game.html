@@ -9,21 +9,37 @@
 </head>
 <body>
     <span id="nav-bar">
-        <div>
-            <a href="{% url 'home' %}">Home</a>
-        </div>
+        <a href="{% url 'home' %}"><img src="{% static 'main/logo.png' %}" id="game-img"></a>
+        <h1>Library</h1>
         {% if user.is_authenticated %}
         <p>Welcome, {{ user.username }}! </p>
-        <a href="{% url 'logout' %}">Logout</a>
+        <a class="button" href="{% url 'logout' %}">Log out</a>
         {% else %}
-        <a href="{% url 'login' %}">Login</a>
-        <a href="{% url 'signup' %}">Sign Up</a>
+        <a class="button" href="{% url 'login' %}">Log in</a>
+        <a class="button" href="{% url 'signup' %}">Sign Up</a>
         {% endif %}    
     </span>
-    <a href="{% url 'african_president' %}">African President</a>
-    <a href="{% url 'animal_hangman' %}">Animal Hangman</a>
-    <a href="{% url 'hammy_racing' %}">Hammy Racing</a>
-    <a href="{% url 'leaderboard' %}">Leaderboard</a>
+    <section id="library">
+        <div class="game-grid">
+            <div class="game-item">
+                <a href="{% url 'african_president' %}">
+                    <img src="{% static 'main/africanPresident.jpg' %}">
+                </a>
+            </div>
+            <div class="game-item">
+                <a href="{% url 'animal_hangman' %}">
+                    <img src="{% static 'main/animalHangman.jpg' %}">
+                </a>
+            </div>
+            <div class="game-item">
+                <a href="{% url 'hammy_racing' %}">
+                    <img src="{% static 'main/hammyRacing.jpg' %}">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <a href="{% url 'leaderboard' %}"><img src="{% static 'main/crown.jpg' %}" id="crown-img"></a>
 
 </body>
 </html>

@@ -16,7 +16,6 @@ animals = ['tiger', 'elephant', 'giraffe', 'hippopotamus', 'cheetah']
 wrong_messages = ["Better luck next time!", "Try again!"]
 
 
-@login_required
 def signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -28,6 +27,7 @@ def signup(request):
         form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
 
+@login_required
 def logout_view(request):
     auth_logout(request)  # Logs out the user
     return redirect('home')  # Redirects to the 'home' view
@@ -65,7 +65,9 @@ def animal_hangman(request):
             for i, letter in enumerate(word):
                 if letter == guess:
                     word_tiles[i] = guess
-            request.session['word_tiles'] = ''.join(word_tiles)
+            # Join the list back into a string before saving it to the session
+            word_tiles = ''.join(word_tiles)
+            request.session['word_tiles'] = word_tiles
         else:
             guessed_wrong_amount += 1
             request.session['guessed_wrong_amount'] = guessed_wrong_amount
@@ -86,16 +88,16 @@ def animal_hangman(request):
             })
 
         # Check for winning condition
-        if '_' not in request.session['word_tiles']:
-            leaderboard, created = Leaderboard.objects.get_or_create(user=request.user)
-            leaderboard.animal_hangman_games_won += 1
-            leaderboard.save()
+        if '_' not in word_tiles:  # Use the updated word_tiles here
+            if request.user.is_authenticated:
+                leaderboard, created = Leaderboard.objects.get_or_create(user=request.user)
+                leaderboard.animal_hangman_games_won += 1
+                leaderboard.save()
             return JsonResponse({
-                'word_tiles': request.session['word_tiles'],
+                'word_tiles': word_tiles,
                 'guessed_letters': guessed_letters,
                 'message': 'You won!',
                 'game_over': True,
-                
             })
 
         # Continue the game
@@ -112,7 +114,7 @@ def animal_hangman(request):
         
         # Initialize the game state in session
         request.session['word'] = word
-        request.session['word_tiles'] = "_" * len(word)  # Create initial word tiles (hidden)
+        request.session['word_tiles'] = "_" * len(word)
         request.session['guessed_letters'] = ""
         request.session['guessed_wrong_amount'] = 0
 
