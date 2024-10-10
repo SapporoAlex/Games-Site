@@ -69,6 +69,7 @@ def animal_hangman(request):
             word_tiles = ''.join(word_tiles)
             request.session['word_tiles'] = word_tiles
         else:
+            word_tiles = list(request.session['word_tiles'])
             guessed_wrong_amount += 1
             request.session['guessed_wrong_amount'] = guessed_wrong_amount
 
@@ -126,9 +127,23 @@ def animal_hangman(request):
         })
 
 def african_president(request):
+        # Check for winning condition
+    if request.method == 'POST':
+        if request.user.is_authenticated:
+            leaderboard, created = Leaderboard.objects.get_or_create(user=request.user)
+            leaderboard.african_president_games_won += 1
+            leaderboard.save()
+            return JsonResponse({'message': 'Win recorded for African President!'})
     return render(request, 'african_president.html')
 
 def hammy_racing(request):
+    if request.method == 'POST':
+        if request.user.is_authenticated:
+            leaderboard, created = Leaderboard.objects.get_or_create(user=request.user)
+            leaderboard.hammy_racing_games_won += 1
+            leaderboard.save()
+            return JsonResponse({'message': 'Win recorded for Hammy Racing!'})
+        # Check for winning condition
     return render(request, 'hammy_racing.html')
 
 def leaderboard(request):

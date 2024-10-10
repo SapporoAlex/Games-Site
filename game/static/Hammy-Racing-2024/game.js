@@ -20,6 +20,8 @@ const finishLineImage = new Image();
 finishLineImage.src = '/static/Hammy-Racing-2024/finish.png'; // Replace with the path to your second obstacle image
 
 
+
+
 let car = {
     x: 100,
     y: canvas.height / 2,
@@ -122,6 +124,19 @@ function displayGameOverMessage(timeTaken) {
     ctx.font = '48px serif';
     ctx.fillText(`Time: ${timeTaken.toFixed(2)} seconds`, canvas.width / 2 - 150, canvas.height / 2 - 50);
     ctx.fillText('Press Space to Play Again', canvas.width / 2 - 200, canvas.height / 2 + 50);
+    fetch('/hammy_racing/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken')
+        },
+        body: JSON.stringify({})
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.message);
+    })
+    .catch(error => console.error('Error:', error));
 }
 
 
@@ -185,7 +200,44 @@ window.addEventListener('keyup', (e) => {
     if (e.key === 'ArrowUp' || e.key === 'ArrowDown') car.dy = 0;
 });
 
+window.addEventListener('touchstart', handleTouchStart);
+window.addEventListener('touchend', handleTouchEnd);
+
+function handleTouchStart(e) {
+    // Get the touch position relative to the canvas
+    const touchY = e.touches[0].clientY;
+
+    // Move the car up if the touch is above the car's y position
+    if (touchY < car.y) {
+        car.dy = -car.speed;
+    }
+    // Move the car down if the touch is below the car's y position
+    else if (touchY > car.y + car.height) {
+        car.dy = car.speed;
+    }
+}
+
+function handleTouchEnd() {
+    // Stop the car's movement when the touch ends
+    car.dy = 0;
+}
+
 background.onload = function() {
     startTime = Date.now();
     update();
 };
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}

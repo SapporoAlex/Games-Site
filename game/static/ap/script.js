@@ -856,7 +856,21 @@ function winGame() {
   playSoundEffect('winSound');
   img.src = '/static/ap/african president images/win.jpg';
   update(locations[7]);
+  fetch('/african_president/', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': getCookie('csrftoken')  // Include the CSRF token
+    },
+    body: JSON.stringify({})
+})
+.then(response => response.json())
+.then(data => {
+    console.log(data.message); // Optionally display a message or handle response
+})
+.catch(error => console.error('Error:', error));
 }
+
 
 function office() {
   img.src = '/static/ap/african president images/office.jpg';
@@ -1091,4 +1105,19 @@ function restart() {
   dayValueText.innerHTML = gameDay;
   timeValueText.innerText = timeOfDay;
   office();
+}
+
+function getCookie(name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== '') {
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+              break;
+          }
+      }
+  }
+  return cookieValue;
 }

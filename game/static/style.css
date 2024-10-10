@@ -25,10 +25,9 @@ body {
 }
 
 #game-img {
-    width: 50px;
+    width: 65px;
     height: auto;
-}
-    
+}   
 
 #nav-bar {
     display: flex;
@@ -92,7 +91,6 @@ body {
 #home-options img {
     padding: 10px;
 }
-
 
 /* This is where the games will be */
 #library {
