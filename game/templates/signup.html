@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
+    <link rel="icon" href="/static/main/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
@@ -12,7 +13,7 @@
         <a href="{% url 'home' %}"><img src="{% static 'main/logo.png' %}" id="game-img"></a>
         <h1>Sign Up</h1>
     </span>
-    <form method="post">
+    <form method="post" id="signup-form">
         {% csrf_token %}
         {{ form.as_p }}
         <button class="button" type="submit">Sign Up</button>

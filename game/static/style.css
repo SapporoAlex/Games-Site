@@ -25,27 +25,29 @@ body {
 }
 
 #game-img {
-    width: 65px;
+    width: 80px;
     height: auto;
-}   
+}
 
 #nav-bar {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
     align-items: center;
+    justify-content:space-evenly;
     text-decoration: none;
     width: 100%;
-    height: 50px;
+    height: 70px;
     background-color: var(--nav-bar-bg);
     color:  var(--text-color);
     z-index: 1;
     padding: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
 .button {
     position: relative;
     background-color: var(--button-idle);
+    display: flex;
     justify-content: center;
     align-content: center;
     border: none;
@@ -154,4 +156,98 @@ th {
 
 tbody tr:nth-child(even) {
     background-color: var(--tertiary-color);
+}
+
+#signup-form {
+    margin-top: 70px;
+}
+
+#login-form {
+    margin-top: 70px;
+}
+
+#select-img {
+transition: transform 0.3s ease;
+}
+
+#select-img:hover {
+    transform: scale(1.05);
+}
+
+#crown-img {
+    transition: transform 0.3s ease;
+}
+    
+#crown-img:hover {
+    transform: scale(1.05);
+}
+
+
+/* Styles for screens smaller than 768px (Tablets and smaller) */
+@media (max-width: 768px) {
+    #nav-bar {
+        flex-direction: column; /* Stack navigation items vertically */
+        height: auto; /* Allow height to adjust based on content */
+    }
+    #select-img {
+        max-width: 40vw;
+        max-height: auto;
+    }
+    #crown-img {
+        max-width: 40vw;
+        max-height: auto;
+    }
+
+    .button {
+        width: 50%; /* Make buttons full-width */
+        margin: 10px 0; /* Adjust margins for better spacing */
+    }
+
+    #home-options {
+        padding: 20px 0; /* Reduce padding */
+    }
+
+    .game-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust grid items for smaller screens */
+    }
+
+    table {
+        width: 100%; /* Make table full width */
+    }
+
+    th img {
+        width: 50%; /* Make table header images smaller */
+    }
+
+    #signup-form, #login-form {
+        margin-top: 20px; /* Reduce margin for forms */
+    }
+}
+
+/* Styles for screens smaller than 480px (Mobile Phones) */
+@media (max-width: 480px) {
+    body {
+        font-size: var(--font-size-small); /* Smaller font size for better readability */
+    }
+
+    .button {
+        padding: 8px; /* Reduce button padding */
+        font-size: var(--font-size-small); /* Smaller font size for buttons */
+    }
+
+    #nav-bar {
+        padding: 10px; /* Adjust padding for nav bar */
+    }
+
+    #home-options {
+        padding: 10px 0; /* Further reduce padding */
+    }
+
+    .game-grid {
+        grid-template-columns: 1fr; /* Stack game items in a single column */
+    }
+
+    th img {
+        width: 100%; /* Make header images full width */
+    }
 }

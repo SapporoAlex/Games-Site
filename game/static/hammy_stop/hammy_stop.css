@@ -1,0 +1,118 @@
+:root {
+    --background-color: #202025;
+    --nav-bar-bg: #252535;
+    --text-color: rgb(247, 247, 247);
+    --button-idle: #ff9100;
+    --button-active: #ff5100;
+    --tertiary-color: #003366;
+    --text-dark: rgb(0, 0, 0);
+    --font-size-large: 24px;
+    --font-size-medium: 16px;
+    --font-size-small: 12px;
+}
+
+#nav-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-evenly;
+    text-decoration: none;
+    width: 100%;
+    height: 70px;
+    background-color: var(--nav-bar-bg);
+    color:  var(--text-color);
+    z-index: 1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+
+.button {
+    position: relative;
+    background-color: var(--button-idle);
+    justify-content: center;
+    align-content: center;
+    border: none;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 25px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: var(--font-size-medium);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+    background-color: var(--button-active);
+    transform: scale(1.05);
+}
+
+.button:active {
+    background-color: var(--button-active);
+    transform: scale(0.98);
+}
+
+.button:focus {
+    outline: 2px dashed var(--button-active);
+}
+
+#game-img {
+    width: 80px;
+    height: auto;
+}
+
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color:  var(--text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    font-family: 'Futura', 'Noto Sans JP', sans-serif;
+}
+
+gamebox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#hs-title {
+    width: 50vw;
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: inline-block; /* or flex, or whatever display style suits your layout */
+}
+
+.move-buttons {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+.row2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+}
+.row1 {
+    display: flex;
+    justify-content: center;
+}
+.row3{
+    display: flex;
+    justify-content: center;
+} 

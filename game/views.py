@@ -97,6 +97,7 @@ def animal_hangman(request):
             return JsonResponse({
                 'word_tiles': word_tiles,
                 'guessed_letters': guessed_letters,
+                'guessed_wrong_amount': guessed_wrong_amount,
                 'message': 'You won!',
                 'game_over': True,
             })
@@ -138,13 +139,46 @@ def african_president(request):
 
 def hammy_racing(request):
     if request.method == 'POST':
-        if request.user.is_authenticated:
-            leaderboard, created = Leaderboard.objects.get_or_create(user=request.user)
-            leaderboard.hammy_racing_games_won += 1
-            leaderboard.save()
-            return JsonResponse({'message': 'Win recorded for Hammy Racing!'})
-        # Check for winning condition
+        try:
+            data = json.loads(request.body)
+            time = data.get('time')
+
+            if request.user.is_authenticated:
+                leaderboard, created = Leaderboard.objects.get_or_create(user=request.user)
+                leaderboard.hammy_racing_time = time
+                leaderboard.save()
+                return JsonResponse({'message': 'Time saved successfully!'})
+            else:
+                return JsonResponse({'error': 'Time is required'}, status=400)
+        except json.JSONDecodeError:
+            return JsonResponse({'error': 'Invalid JSON'}, status=400)
     return render(request, 'hammy_racing.html')
+
+def hammy_stop(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)  # Parse the incoming JSON data
+            score = data.get('score')
+            if score is None:
+                return JsonResponse({'error': 'Score is required'}, status=400)
+            
+            if request.user.is_authenticated:
+                leaderboard, created = Leaderboard.objects.get_or_create(user=request.user)
+                leaderboard.hammy_stop_score = int(score)  # Convert the score to an integer
+                leaderboard.save()
+                return JsonResponse({'message': 'Score saved successfully', 'score': score}, status=200)
+            else:
+                return JsonResponse({'message': 'User not authenticated'}, status=200)
+        except json.JSONDecodeError:
+            return JsonResponse({'error': 'Invalid JSON'}, status=400)
+        except Exception as e:
+            # Log the error for internal debugging (optional)
+            print(f"Error saving score: {str(e)}")
+            return JsonResponse({'error': 'An error occurred while saving the score'}, status=500)
+    
+    # Render the game page for GET requests
+    return render(request, 'hammy_stop.html')
+    
 
 def leaderboard(request):
     # Get all leaderboard entries, ordered by games won in descending order

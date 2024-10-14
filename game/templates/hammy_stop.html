@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hammy Stop!</title>
+    <link rel="icon" href="/static/main/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'hammy_stop/hammy_stop.css' %}">
+</head>
+<body>
+    <span id="nav-bar">
+        <a href="{% url 'home' %}"><img src="{% static 'main/logo.png' %}" id="game-img"></a>
+        <h2 id="title">Hammy Stop!</h2>
+        <a class="button" href="{% url 'select_game' %}">Exit</a>
+    </span>
+    <div id="title-img">
+        <img src="{% static 'hammy_stop/images/title.png' %}" id="hs-title">
+    </div>
+    <div id="gamebox">
+        <canvas id="gameCanvas"></canvas>
+    </div>
+    <div class="button hidden" id="play-again-button">Play again?</div>
+    <div class = "move-buttons">
+        <div class="row1">
+            <div class="controls"><img src="{% static 'hammy_stop/images/up.png' %}" id="mc-up"></div>
+        </div>
+        <div class="row2">
+            <div class="controls"><img src="{% static 'hammy_stop/images/left.png' %}" id="mc-left"></div>
+            <div class="controls"><img src="{% static 'hammy_stop/images/stop.png' %}" id="mc-stop"></div>
+            <div class="controls"><img src="{% static 'hammy_stop/images/right.png' %}" id="mc-right"></div>
+        </div>
+        <div class="row3">
+            <div class="controls"><img src="{% static 'hammy_stop/images/down.png' %}" id="mc-down"></div>
+        </div>
+    </div>
+    <script src="{% static 'hammy_stop/hammy_stop.js' %}"></script>
+</body>
+</html>

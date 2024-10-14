@@ -4,19 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/static/main/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <title>Hamster Games</title>
 </head>
 <body>
 <span id="nav-bar">
     <a href="{% url 'home' %}"><img src="{% static 'main/logo.png' %}" id="game-img"></a>
-    <h1>Hamster Games</h1>
+    <h1 id"site-title">Hamster Games</h1>
     {% if user.is_authenticated %}
     <p>Welcome, {{ user.username }}! </p>
-    <a class="button" href="{% url 'logout' %}">Log out</a>
+    <a class="button" href="{% url 'logout' %}" id="logout-btn">Log out</a>
     {% else %}
-    <a class="button" href="{% url 'login' %}">Log in</a>
-    <a class="button" href="{% url 'signup' %}">Sign Up</a>
+    <a class="button" href="{% url 'login' %}" id="login-btn">Log in</a>
+    <a class="button" href="{% url 'signup' %}" id="signup-btn">Sign Up</a>
     {% endif %}
 </span>
 <span id="home-options">

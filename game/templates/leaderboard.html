@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="icon" href="/static/main/favicon.ico" type="image/x-icon">
     <title>Leaderboard</title>
 </head>
 
@@ -28,6 +29,7 @@
                 <th><img src="{% static 'main/africanPresident.jpg' %}"></th>
                 <th><img src="{% static 'main/animalHangman.jpg' %}"></th>
                 <th><img src="{% static 'main/hammyRacing.jpg' %}"></th>
+                <th><img src="{% static 'main/icon.jpg' %}"></th>
             </tr>
         </thead>
         <tbody>
@@ -37,7 +39,8 @@
                     <td>{{ entry.user.username }}</td>
                     <td>{{ entry.african_president_games_won }}</td>
                     <td>{{ entry.animal_hangman_games_won }}</td>
-                    <td>{{ entry.hammy_racing_games_won }}</td>
+                    <td>{{ entry.hammy_racing_time }}</td>
+                    <td>{{ entry.hammy_stop_score }}</td>
                 </tr>
             {% empty %}
                 <tr>

@@ -20,7 +20,11 @@ const finishLineImage = new Image();
 finishLineImage.src = '/static/Hammy-Racing-2024/finish.png'; // Replace with the path to your second obstacle image
 
 
-
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    restartGame(); // Optional: restart to reposition car, etc.
+});
 
 let car = {
     x: 100,
@@ -32,13 +36,40 @@ let car = {
 };
 
 let obstacles = [];
-let baseSpeed = 4;
+let baseSpeed = 8;
 let speedFactor = 2.5;
 let isSlowedDown = false;
 let bgX = 0;
 let tilesPassed = 0;
 let startTime;
 let gameOver = false;
+
+function saveTime(timeTaken) {
+    fetch('/hammy_racing/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCSRFToken()
+        },
+        body: JSON.stringify({ 'time': timeTaken.toFixed(2) }),  // Use timeTaken here
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.message) {
+            console.log(data.message);
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+// Function to get CSRF token (required if you have CSRF protection enabled)
+function getCSRFToken() {
+    const cookieValue = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('csrftoken'))
+        ?.split('=')[1];
+    return cookieValue || '';
+}
 
 function drawBackground() {
     ctx.drawImage(background, bgX, 0, canvas.width, canvas.height);
@@ -76,7 +107,7 @@ function updateObstacles() {
         obstacles.shift();
     }
 
-    if (tilesPassed >= 30 && !obstacles.some(ob => ob.type === 'finish')) {
+    if (tilesPassed >= 4 && !obstacles.some(ob => ob.type === 'finish')) {
         obstacles.push({
             x: canvas.width,
             y: 0,
@@ -86,7 +117,7 @@ function updateObstacles() {
         });
     }
 
-    if (Math.random() < 0.02 && tilesPassed < 29) {
+    if (Math.random() < 0.02 && tilesPassed < 4) {
         let type = Math.random() < 0.5 ? 1 : 2;
         obstacles.push({
             x: canvas.width,
@@ -123,20 +154,8 @@ function displayGameOverMessage(timeTaken) {
     ctx.fillStyle = 'black';
     ctx.font = '48px serif';
     ctx.fillText(`Time: ${timeTaken.toFixed(2)} seconds`, canvas.width / 2 - 150, canvas.height / 2 - 50);
+    saveTime(timeTaken);  // Pass the timeTaken to the saveTime function
     ctx.fillText('Press Space to Play Again', canvas.width / 2 - 200, canvas.height / 2 + 50);
-    fetch('/hammy_racing/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRFToken': getCookie('csrftoken')
-        },
-        body: JSON.stringify({})
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data.message);
-    })
-    .catch(error => console.error('Error:', error));
 }
 
 
@@ -218,8 +237,13 @@ function handleTouchStart(e) {
 }
 
 function handleTouchEnd() {
-    // Stop the car's movement when the touch ends
-    car.dy = 0;
+    // If the game is over, restart the game on touch end
+    if (gameOver) {
+        restartGame();
+    } else {
+        // Stop the car's movement when the touch ends
+        car.dy = 0;
+    }
 }
 
 background.onload = function() {
