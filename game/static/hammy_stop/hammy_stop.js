@@ -239,16 +239,42 @@ let moveDirection = null; // Track the current direction
 
 
 
-upButton.addEventListener('touchstart', () => { moveDirection = 'up'; });
-upButton.addEventListener('mousedown', () => { moveDirection = 'up'; });
-downButton.addEventListener('touchstart', () => { moveDirection = 'down'; });
-downButton.addEventListener('mousedown', () => { moveDirection = 'down'; });
-leftButton.addEventListener('touchstart', () => { moveDirection = 'left'; });
-leftButton.addEventListener('mousedown', () => { moveDirection = 'left'; });
-rightButton.addEventListener('touchstart', () => { moveDirection = 'right'; });
-rightButton.addEventListener('mousedown', () => { moveDirection = 'right'; });
-stopButton.addEventListener('touchstart', stopMovement);
-stopButton.addEventListener('mousedown', stopMovement);
+upButton.addEventListener('touchstart', (event) => { 
+    moveDirection = 'up';
+    event.preventDefault();
+});
+upButton.addEventListener('mousedown', (event) => { 
+    moveDirection = 'up';
+    event.preventDefault();
+});
+downButton.addEventListener('touchstart', (event) => { 
+    moveDirection = 'down';
+    event.preventDefault();
+});
+downButton.addEventListener('mousedown', (event) => { 
+    moveDirection = 'down';
+    event.preventDefault();
+});
+leftButton.addEventListener('touchstart', (event) => { 
+    moveDirection = 'left';
+    event.preventDefault();
+});
+leftButton.addEventListener('mousedown', (event) => { 
+    moveDirection = 'left';
+    event.preventDefault();
+});
+rightButton.addEventListener('touchstart', (event) => { 
+    moveDirection = 'right';
+    event.preventDefault();
+});
+rightButton.addEventListener('mousedown', (event) => { 
+    moveDirection = 'right';
+    event.preventDefault();
+});
+stopButton.addEventListener('touchstart', freeze);
+stopButton.addEventListener('mousedown', freeze);
+stopButton.addEventListener('touchend', unfreeze);
+stopButton.addEventListener('mouseup', unfreeze);
 
 window.addEventListener('touchend', () => { moveDirection = null; });
 window.addEventListener('mouseup', () => { moveDirection = null; });
@@ -423,11 +449,11 @@ function gameLoop() {
         controls.classList.add('hidden');
         playAgainBtn.onclick = function() {
             scoreSaved = false; // Reset score save flag
-            resetGame();
             playAgainBtn.classList.remove('visible');
             playAgainBtn.classList.add('hidden');
             controls.classList.remove('hidden');
             controls.classList.add('visible');
+            resetGame();
         };
         return; // Exit the loop early if the game is over
     }
@@ -517,4 +543,3 @@ function gameLoop() {
 }
 
 gameLoop();
-

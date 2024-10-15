@@ -11,6 +11,10 @@
     --font-size-small: 12px;
 }
 
+#mc-up, #mc-down, #mc-left, #mc-right, #mc-stop {
+    touch-action: none; /* Disable touch gestures */
+}
+
 #nav-bar {
     display: flex;
     flex-direction: row;
@@ -101,6 +105,11 @@ gamebox {
     flex-direction: column;
     justify-content: center;
     gap: 10px;
+}
+
+.move-buttons imgs{
+    width: 25vw;
+    height: auto;
 }
 
 .row2, .row1, .row3 {

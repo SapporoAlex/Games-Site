@@ -2,7 +2,11 @@
 <html lang="en">
 {% load static %}
 <head>
-    <a href="{% url 'select_game' %}"><h2 id="exit-button">Exit</h2></a>
+    <span id="nav-bar">
+        <a href="{% url 'home' %}"><img src="{% static 'main/logo.png' %}" id="game-img"></a>
+        <h2 id="title">Hammy Racing 2024</h2>
+        <a class="button" href="{% url 'select_game' %}">Exit</a>
+    </span>
     <link rel="icon" href="/static/main/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +19,8 @@
         <div class="timer" id="timer"></div>
         <div class="game-over" id="gameOverMessage" style="display: none;"></div>
     </div>
+    <h2>Hammy Racing Directions</h2>
+    <p>Up and down arrow keys, or tap above or below the car to steer</p>
     <script src="{% static 'Hammy-Racing-2024/game.js' %}"></script>
 </body>
 </html>

@@ -27,7 +27,7 @@ window.addEventListener('resize', () => {
 });
 
 let car = {
-    x: 100,
+    x: 20,
     y: canvas.height / 2,
     width: 75,
     height: 40,
@@ -155,7 +155,6 @@ function displayGameOverMessage(timeTaken) {
     ctx.font = '48px serif';
     ctx.fillText(`Time: ${timeTaken.toFixed(2)} seconds`, canvas.width / 2 - 150, canvas.height / 2 - 50);
     saveTime(timeTaken);  // Pass the timeTaken to the saveTime function
-    ctx.fillText('Press Space to Play Again', canvas.width / 2 - 200, canvas.height / 2 + 50);
 }
 
 
@@ -189,7 +188,7 @@ function update() {
 
 function restartGame() {
     car = {
-        x: 100,
+        x: 20,
         y: canvas.height / 2,
         width: 75,
         height: 40,
