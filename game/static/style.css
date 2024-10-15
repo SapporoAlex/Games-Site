@@ -136,11 +136,16 @@ body {
 }
 
 #latest {
-    display: block;
-    max-width: 100vw;
+    display: flex; /* Flexbox can help with centering */
+    justify-content: center; /* Center the image horizontally */
     margin-top: 20px;
     margin-bottom: 20px;
-    justify-content: center;
+}
+
+#latest img {
+    max-width: 100vw; /* Ensures the image does not exceed the width of the viewport */
+    width: 100%; /* Makes the image responsive */
+    height: auto; /* Maintains the aspect ratio */
 }
 
 th img {
