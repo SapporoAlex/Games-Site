@@ -16,7 +16,7 @@ This is a full-stack application that allows users to play free games in the bro
 <img src="https://github.com/SapporoAlex/Games-Site/blob/main/preview1.jpg" width="400px" height="auto"><p>  </p><img src="https://github.com/SapporoAlex/Games-Site/blob/main/preview2.jpg" width="400px" height="auto"><p>  </p><img src="https://github.com/SapporoAlex/Games-Site/blob/main/preview3.jpg" width="400px" height="auto">
 
 ## Structure
-This website was built in Django. The games are written in vanilla JavaScript, with the exception of Animal Hangman which has its' game logic written in Python.
+This website was built in Django. The games are written in vanilla JavaScript, with the exception of Animal Hangman which has its game logic written in Python.
 
 ## License
 Distributed under the MIT License. See `LICENSE` for more information.
