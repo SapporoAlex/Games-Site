@@ -29,6 +29,7 @@
 .button {
     position: relative;
     background-color: var(--button-idle);
+    display: flex;
     justify-content: center;
     align-content: center;
     border: none;
@@ -42,6 +43,7 @@
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
+
 
 .button:hover {
     background-color: var(--button-active);
