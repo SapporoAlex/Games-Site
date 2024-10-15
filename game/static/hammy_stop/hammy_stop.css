@@ -112,9 +112,8 @@ gamebox {
 /* Mobile responsive styles */
 @media (max-width: 768px) {
     #nav-bar {
-        flex-direction: column;
         height: auto;
-        padding: 10px 0;
+        padding: 5px 0;
     }
 
     .button {
