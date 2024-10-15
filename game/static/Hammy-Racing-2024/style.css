@@ -28,13 +28,7 @@
     text-decoration: none;
     display: inline-block;
 }
-body {
-    background-color: var(--background-color);
-    color:  var(--text-color);
-    margin: 0;
-    overflow: hidden;
-    font-family: 'Futura', 'Noto Sans JP', sans-serif;
-}
+
 canvas {
     display: block;
     background-color: #87CEEB;
@@ -46,6 +40,11 @@ body {
     height: 100vh;
     background-color: #f0f0f0; /* Background color for the body */
     font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color:  var(--text-color);
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Futura', 'Noto Sans JP', sans-serif;
 }
 
 /* Canvas Styles */

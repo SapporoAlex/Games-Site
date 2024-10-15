@@ -19,27 +19,6 @@ obstacleImage2.src = '/static/Hammy-Racing-2024/coins.png'; // Replace with the 
 const finishLineImage = new Image();
 finishLineImage.src = '/static/Hammy-Racing-2024/finish.png'; // Replace with the path to your second obstacle image
 
-document.getElementById('upButton').addEventListener('touchstart', () => {
-    car.dy = -car.speed;
-});
-
-document.getElementById('downButton').addEventListener('touchstart', () => {
-    car.dy = car.speed;
-});
-
-document.getElementById('upButton').addEventListener('touchend', () => {
-    car.dy = 0;
-});
-
-document.getElementById('downButton').addEventListener('touchend', () => {
-    car.dy = 0;
-});
-
-document.getElementById('restartButton').addEventListener('click', () => {
-    if (gameOver) {
-        restartGame();
-    }
-});
 
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
