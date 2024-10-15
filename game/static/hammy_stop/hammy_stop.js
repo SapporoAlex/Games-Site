@@ -237,10 +237,7 @@ let scoreSaved = false;
 
 let moveDirection = null; // Track the current direction
 
-window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-});
+
 
 upButton.addEventListener('touchstart', () => { moveDirection = 'up'; });
 upButton.addEventListener('mousedown', () => { moveDirection = 'up'; });

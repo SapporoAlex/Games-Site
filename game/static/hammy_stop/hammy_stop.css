@@ -139,6 +139,11 @@ gamebox {
     .visible {
         display: block;
     }
+
+    #gameCanvas {
+        width: 80vw;
+        height: auto;
+    }
 }
 
 @media (max-width: 480px) {
@@ -154,6 +159,11 @@ gamebox {
 
     #nav-bar {
         font-size: var(--font-size-small);
+    }
+
+    #gameCanvas {
+        width: 90vw;
+        height: auto;
     }
 
 }

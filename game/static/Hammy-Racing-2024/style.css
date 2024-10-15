@@ -4,7 +4,25 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+#exit-button {
+    position: fixed;
+    z-index: 1000;
+    background-color: #ff6347;
+    color: #fff;
+    right: 50px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+body {
+    margin: 0;
+    overflow: hidden;
+}
+canvas {
+    display: block;
+    background-color: #87CEEB;
+}
 body {
     display: flex;
     justify-content: center;
@@ -18,7 +36,6 @@ body {
 #gameCanvas {
     border: 2px solid #333; /* Canvas border */
     background-color: #eee; /* Background color for the canvas */
-    touch-action: none; /* Prevent touch events from scrolling the page */
 }
 
 /* Game Over Message Styles */

@@ -1,8 +1,8 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.width = 400;
+canvas.height = 400;
 
 const carImage = new Image();
 carImage.src = '/static/Hammy-Racing-2024/redCar1.png'; // Replace with the path to your car image
@@ -50,8 +50,8 @@ window.addEventListener('resize', () => {
 let car = {
     x: 100,
     y: canvas.height / 2,
-    width: 150,
-    height: 70,
+    width: 75,
+    height: 40,
     speed: 5,
     dy: 0
 };
