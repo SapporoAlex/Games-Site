@@ -340,7 +340,7 @@ function spawnPoop() {
 function displayScore() {
     ctx.fillStyle = 'white'; // Color for the score text
     ctx.font = '20px Arial'; // Font style and size
-    ctx.fillText(Nuts: ${player.score}, 200, 440); // Display the score at (20, 40)
+    ctx.fillText('Nuts: ${player.score}', 200, 440); // Display the score at (20, 40)
     ctx.fillText('DETECTION', 20, 30); // Display detction Text
 }
 
@@ -351,7 +351,7 @@ function detectionDrip() {
 function displayGameOverMessage(score) {
     ctx.fillStyle = 'white';
     ctx.font = '36px serif';
-    ctx.fillText(Nuts: ${player.score}, canvas.width / 2 - 150, canvas.height / 2 - 50);
+    ctx.fillText('Nuts: ${player.score}', canvas.width / 2 - 150, canvas.height / 2 - 50);
     saveScore(score)
 
 }
@@ -389,8 +389,8 @@ async function saveScore(score) {
 
         if (!response.ok) {
             const errorText = await response.text(); // Get the error message
-            console.error(HTTP error! Status: ${response.status} - ${errorText});
-            throw new Error(HTTP error! status: ${response.status});
+            console.error(`HTTP error! Status: ${response.status} - ${errorText}`);
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
 
         const data = await response.json();
