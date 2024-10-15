@@ -118,7 +118,7 @@ gamebox {
     }
 
     .button {
-        width: 80%;
+        width: 20%;
         margin: 10px 0;
         padding: 8px;
         font-size: var(--font-size-small);
@@ -136,18 +136,6 @@ gamebox {
         width: 90vw;
     }
 
-    .move-buttons {
-        flex-direction: row;
-        gap: 5px;
-        flex-wrap: wrap;
-    }
-
-    .row2, .row1, .row3 {
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-    }
-
     .visible {
         display: block;
     }
@@ -155,7 +143,7 @@ gamebox {
 
 @media (max-width: 480px) {
     .button {
-        width: 90%;
+        width: 20%;
         padding: 6px;
         font-size: var(--font-size-small);
     }
@@ -168,12 +156,4 @@ gamebox {
         font-size: var(--font-size-small);
     }
 
-    .move-buttons {
-        gap: 5px;
-        justify-content: space-around;
-    }
-
-    .row2, .row1, .row3 {
-        gap: 5px;
-    }
 }
