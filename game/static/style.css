@@ -140,6 +140,7 @@ body {
     width: 100vw;
     margin-top: 20px;
     margin-bottom: 20px;
+    justify-content: center;
 }
 
 th img {
