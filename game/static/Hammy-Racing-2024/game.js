@@ -31,12 +31,12 @@ let car = {
     y: canvas.height / 2,
     width: 75,
     height: 40,
-    speed: 5,
+    speed: 3,
     dy: 0
 };
 
 let obstacles = [];
-let baseSpeed = 5;
+let baseSpeed = 3;
 let speedFactor = 2.5;
 let isSlowedDown = false;
 let bgX = 0;
@@ -193,12 +193,12 @@ function restartGame() {
         y: canvas.height / 2,
         width: 75,
         height: 40,
-        speed: 5,
+        speed: 3,
         dy: 0
     };
 
     obstacles = [];
-    baseSpeed = 5;
+    baseSpeed = 3;
     speedFactor = 2.5;
     isSlowedDown = false;
     bgX = 0;
