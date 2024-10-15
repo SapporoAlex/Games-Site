@@ -1,4 +1,4 @@
 ﻿Django==4.2.5
 requests==2.28.0
 djangorestframework
-gunicorn hangman_project.wsgi
+gunicorn
