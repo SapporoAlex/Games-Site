@@ -79,6 +79,11 @@ body {
     font-family: 'Futura', 'Noto Sans JP', sans-serif;
 }
 
+#game-img {
+    width: 80px;
+    height: auto;
+}
+
 /* Canvas Styles */
 #gameCanvas {
     display: block;
