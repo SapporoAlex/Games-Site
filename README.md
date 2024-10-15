@@ -1,6 +1,6 @@
 # Hamster Games (Free Gaming Website)
 <img src="https://github.com/SapporoAlex/Games-Site/blob/main/game/static/main/logo.png" width="300px" height="auto">
-This is a full-stack application that allows users to play free games in the browser. They can retain their scores if they sign up and log in. There is room to add more games and features in future.
+This is a full-stack application that allows users to play free games in the browser. They can retain their scores if they sign up and log in. There is room to add more games and features in future. It is currently hosted via Render.
 
 ## Features
 - 4 original games (made by myself)
