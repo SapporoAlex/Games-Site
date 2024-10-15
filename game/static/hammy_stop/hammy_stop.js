@@ -271,10 +271,22 @@ rightButton.addEventListener('mousedown', (event) => {
     moveDirection = 'right';
     event.preventDefault();
 });
-stopButton.addEventListener('touchstart', freeze);
-stopButton.addEventListener('mousedown', freeze);
-stopButton.addEventListener('touchend', unfreeze);
-stopButton.addEventListener('mouseup', unfreeze);
+stopButton.addEventListener('touchstart', (event) => {
+    freeze();
+    event.preventDefault(); // Prevent default behavior
+});
+stopButton.addEventListener('mousedown', (event) => {
+    freeze();
+    event.preventDefault(); // Prevent default behavior
+});
+stopButton.addEventListener('touchend', (event) => {
+    unfreeze();
+    event.preventDefault(); // Prevent default behavior
+});
+stopButton.addEventListener('mouseup', (event) => {
+    unfreeze();
+    event.preventDefault(); // Prevent default behavior
+});
 
 window.addEventListener('touchend', () => { moveDirection = null; });
 window.addEventListener('mouseup', () => { moveDirection = null; });
