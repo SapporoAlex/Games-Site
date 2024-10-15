@@ -135,7 +135,7 @@ body {
     margin: 15px;
 }
 
-#latest img {
+#latest {
     display: flex;
     width: 100vw;
     margin-top: 20px;
