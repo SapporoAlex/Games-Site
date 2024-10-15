@@ -3,7 +3,7 @@
 This is a full-stack application that allows users to play free games in the browser. They can retain their scores if they sign up and log in. There is room to add more games and features in future.
 
 ## Features
-<img src="https://github.com/SapporoAlex/Games-Site/blob/main/preview1.jpg" max-width="30vw" max-height="auto">
+<img src="https://github.com/SapporoAlex/Games-Site/blob/main/preview1.jpg" max-width="30%" max-height="auto">
 - 4 original games (made by myself)
 - Leaderboard with scores for signed-up users
 
