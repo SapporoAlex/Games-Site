@@ -227,8 +227,11 @@ function handleTouchStart(e) {
     // Get the touch position relative to the canvas
     const touchY = e.touches[0].clientY;
 
+    if (gameOver) {
+        restartGame();
+    }
     // Move the car up if the touch is above the car's y position
-    if (touchY < car.y) {
+    else if (touchY < car.y) {
         car.dy = -car.speed;
     }
     // Move the car down if the touch is below the car's y position
