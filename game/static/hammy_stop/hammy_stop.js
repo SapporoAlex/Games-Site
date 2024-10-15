@@ -239,54 +239,18 @@ let moveDirection = null; // Track the current direction
 
 
 
-upButton.addEventListener('touchstart', (event) => { 
-    moveDirection = 'up';
-    event.preventDefault();
-});
-upButton.addEventListener('mousedown', (event) => { 
-    moveDirection = 'up';
-    event.preventDefault();
-});
-downButton.addEventListener('touchstart', (event) => { 
-    moveDirection = 'down';
-    event.preventDefault();
-});
-downButton.addEventListener('mousedown', (event) => { 
-    moveDirection = 'down';
-    event.preventDefault();
-});
-leftButton.addEventListener('touchstart', (event) => { 
-    moveDirection = 'left';
-    event.preventDefault();
-});
-leftButton.addEventListener('mousedown', (event) => { 
-    moveDirection = 'left';
-    event.preventDefault();
-});
-rightButton.addEventListener('touchstart', (event) => { 
-    moveDirection = 'right';
-    event.preventDefault();
-});
-rightButton.addEventListener('mousedown', (event) => { 
-    moveDirection = 'right';
-    event.preventDefault();
-});
-stopButton.addEventListener('touchstart', (event) => {
-    freeze();
-    event.preventDefault(); // Prevent default behavior
-});
-stopButton.addEventListener('mousedown', (event) => {
-    freeze();
-    event.preventDefault(); // Prevent default behavior
-});
-stopButton.addEventListener('touchend', (event) => {
-    unfreeze();
-    event.preventDefault(); // Prevent default behavior
-});
-stopButton.addEventListener('mouseup', (event) => {
-    unfreeze();
-    event.preventDefault(); // Prevent default behavior
-});
+upButton.addEventListener('touchstart', () => { moveDirection = 'up'; });
+upButton.addEventListener('mousedown', () => { moveDirection = 'up'; });
+downButton.addEventListener('touchstart', () => { moveDirection = 'down'; });
+downButton.addEventListener('mousedown', () => { moveDirection = 'down'; });
+leftButton.addEventListener('touchstart', () => { moveDirection = 'left'; });
+leftButton.addEventListener('mousedown', () => { moveDirection = 'left'; });
+rightButton.addEventListener('touchstart', () => { moveDirection = 'right'; });
+rightButton.addEventListener('mousedown', () => { moveDirection = 'right'; });
+stopButton.addEventListener('touchstart', freeze);
+stopButton.addEventListener('mousedown', freeze);
+stopButton.addEventListener('touchend', unfreeze);
+stopButton.addEventListener('mouseup', unfreeze);
 
 window.addEventListener('touchend', () => { moveDirection = null; });
 window.addEventListener('mouseup', () => { moveDirection = null; });
@@ -376,7 +340,7 @@ function spawnPoop() {
 function displayScore() {
     ctx.fillStyle = 'white'; // Color for the score text
     ctx.font = '20px Arial'; // Font style and size
-    ctx.fillText(`Nuts: ${player.score}`, 200, 440); // Display the score at (20, 40)
+    ctx.fillText(Nuts: ${player.score}, 200, 440); // Display the score at (20, 40)
     ctx.fillText('DETECTION', 20, 30); // Display detction Text
 }
 
@@ -387,7 +351,7 @@ function detectionDrip() {
 function displayGameOverMessage(score) {
     ctx.fillStyle = 'white';
     ctx.font = '36px serif';
-    ctx.fillText(`Nuts: ${player.score}`, canvas.width / 2 - 150, canvas.height / 2 - 50);
+    ctx.fillText(Nuts: ${player.score}, canvas.width / 2 - 150, canvas.height / 2 - 50);
     saveScore(score)
 
 }
@@ -425,8 +389,8 @@ async function saveScore(score) {
 
         if (!response.ok) {
             const errorText = await response.text(); // Get the error message
-            console.error(`HTTP error! Status: ${response.status} - ${errorText}`);
-            throw new Error(`HTTP error! status: ${response.status}`);
+            console.error(HTTP error! Status: ${response.status} - ${errorText});
+            throw new Error(HTTP error! status: ${response.status});
         }
 
         const data = await response.json();
