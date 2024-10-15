@@ -1,4 +1,4 @@
-/* Basic Reset */
+
 :root {
     --background-color: #202025;
     --nav-bar-bg: #252535;
@@ -29,10 +29,7 @@
     display: inline-block;
 }
 
-canvas {
-    display: block;
-    background-color: #87CEEB;
-}
+
 body {
     display: flex;
     justify-content: center;
@@ -49,6 +46,7 @@ body {
 
 /* Canvas Styles */
 #gameCanvas {
+    display: block;
     border: 2px solid #333; /* Canvas border */
     background-color: #eee; /* Background color for the canvas */
 }
