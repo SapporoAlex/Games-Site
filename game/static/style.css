@@ -107,7 +107,7 @@ body {
 
 .game-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 2fr));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjusted to 1fr */
     gap: 20px;
     width: 100%;
     max-width: 1200px;
@@ -136,7 +136,7 @@ body {
 }
 
 #latest img {
-    display: block;
+    display: flex;
     width: 100%;
     margin-top: 20px;
     margin-bottom: 20px;
