@@ -237,16 +237,22 @@ let scoreSaved = false;
 
 let moveDirection = null; // Track the current direction
 
+function setMoveDirection(direction) {
+    return function (e) {
+        e.preventDefault(); // Prevent default touch behavior
+        moveDirection = direction;
+    };
+}
 
+upButton.addEventListener('touchstart', setMoveDirection('up'));
+upButton.addEventListener('mousedown', setMoveDirection('up'));
+downButton.addEventListener('touchstart', setMoveDirection('down'));
+downButton.addEventListener('mousedown', setMoveDirection('down'));
+leftButton.addEventListener('touchstart', setMoveDirection('left'));
+leftButton.addEventListener('mousedown', setMoveDirection('left'));
+rightButton.addEventListener('touchstart', setMoveDirection('right'));
+rightButton.addEventListener('mousedown', setMoveDirection('right'));
 
-upButton.addEventListener('touchstart', () => { moveDirection = 'up'; });
-upButton.addEventListener('mousedown', () => { moveDirection = 'up'; });
-downButton.addEventListener('touchstart', () => { moveDirection = 'down'; });
-downButton.addEventListener('mousedown', () => { moveDirection = 'down'; });
-leftButton.addEventListener('touchstart', () => { moveDirection = 'left'; });
-leftButton.addEventListener('mousedown', () => { moveDirection = 'left'; });
-rightButton.addEventListener('touchstart', () => { moveDirection = 'right'; });
-rightButton.addEventListener('mousedown', () => { moveDirection = 'right'; });
 
 window.addEventListener('touchend', () => { moveDirection = null; });
 window.addEventListener('mouseup', () => { moveDirection = null; });
