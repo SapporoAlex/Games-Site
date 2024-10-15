@@ -102,7 +102,7 @@ body {
     width: 100%;
     padding: 50px 0;
     text-align: center;
-    margin: 15px;
+    margin: 10px;
 }
 
 .game-grid {
@@ -131,12 +131,15 @@ body {
 .game-item img:hover {
     transform: scale(1.05);
 }
+.category {
+    margin: 15px;
+}
 
-#latest {
+#latest img {
     display: block;
     width: 100%;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 th img {
