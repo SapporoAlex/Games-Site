@@ -102,6 +102,7 @@ body {
     width: 100%;
     padding: 50px 0;
     text-align: center;
+    margin: 15px;
 }
 
 .game-grid {
@@ -244,7 +245,7 @@ transition: transform 0.3s ease;
     }
 
     .game-grid {
-        grid-template-columns: repeat(auto-fill, minmax(50px, 2fr)); /* Adjust grid items for smaller screens */
+        grid-template-columns: repeat(auto-fill, minmax(100px, 2fr)); /* Adjust grid items for smaller screens */
     }
 
     th img {
