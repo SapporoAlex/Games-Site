@@ -247,10 +247,6 @@ leftButton.addEventListener('touchstart', () => { moveDirection = 'left'; });
 leftButton.addEventListener('mousedown', () => { moveDirection = 'left'; });
 rightButton.addEventListener('touchstart', () => { moveDirection = 'right'; });
 rightButton.addEventListener('mousedown', () => { moveDirection = 'right'; });
-stopButton.addEventListener('touchstart', freeze);
-stopButton.addEventListener('mousedown', freeze);
-stopButton.addEventListener('touchend', unfreeze);
-stopButton.addEventListener('mouseup', unfreeze);
 
 window.addEventListener('touchend', () => { moveDirection = null; });
 window.addEventListener('mouseup', () => { moveDirection = null; });
