@@ -212,13 +212,14 @@ function restartGame() {
     car = {
         x: 100,
         y: canvas.height / 2,
-        width: 150,
-        height: 70,
+        width: 75,
+        height: 40,
         speed: 5,
         dy: 0
     };
+
     obstacles = [];
-    baseSpeed = 4;
+    baseSpeed = 5;
     speedFactor = 2.5;
     isSlowedDown = false;
     bgX = 0;

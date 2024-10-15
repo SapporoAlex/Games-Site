@@ -1,4 +1,17 @@
 /* Basic Reset */
+:root {
+    --background-color: #202025;
+    --nav-bar-bg: #252535;
+    --text-color: rgb(247, 247, 247);
+    --button-idle: #ff9100;
+    --button-active: #ff5100;
+    --tertiary-color: #003366;
+    --text-dark: rgb(0, 0, 0);
+    --font-size-large: 24px;
+    --font-size-medium: 16px;
+    --font-size-small: 12px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -16,8 +29,11 @@
     display: inline-block;
 }
 body {
+    background-color: var(--background-color);
+    color:  var(--text-color);
     margin: 0;
     overflow: hidden;
+    font-family: 'Futura', 'Noto Sans JP', sans-serif;
 }
 canvas {
     display: block;
@@ -65,36 +81,6 @@ body {
     border-radius: 5px;
 }
 
-/* Control Buttons */
-.controls {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 20px;
-}
-
-.control-button {
-    width: 60px;
-    height: 60px;
-    background-color: #4CAF50; /* Green background */
-    color: white;
-    border: none;
-    border-radius: 30px; /* Circular buttons */
-    font-size: 24px;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s;
-}
-
-.control-button:hover {
-    background-color: #45a049; /* Darker green on hover */
-}
-
-.control-button:active {
-    background-color: #388e3c; /* Darker green when pressed */
-}
 
 /* Responsive adjustments */
 @media (max-width: 600px) {
@@ -107,9 +93,4 @@ body {
         font-size: 18px;
     }
 
-    .control-button {
-        width: 50px;
-        height: 50px;
-        font-size: 20px;
-    }
 }
