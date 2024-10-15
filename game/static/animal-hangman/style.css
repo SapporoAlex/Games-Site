@@ -11,12 +11,11 @@
     --font-size-small: 12px;
 }
 
-
 body {
     margin: 0;
     padding: 0;
     background-color: var(--background-color);
-    color:  var(--text-color);
+    color: var(--text-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,15 +28,15 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
     text-decoration: none;
     width: 100%;
     height: 70px;
     background-color: var(--nav-bar-bg);
-    color:  var(--text-color);
+    color: var(--text-color);
     z-index: 1;
     padding: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .button {
@@ -45,7 +44,7 @@ body {
     background-color: var(--button-idle);
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center; /* Center items vertically */
     border: none;
     margin: 20px;
     padding: 10px;
@@ -76,12 +75,12 @@ body {
     margin-top: 40px;
     display: flex;
     justify-content: center;
-    width: 400px; /* Set the desired width */
-    height: 400px; /* Set the desired height */
-    overflow: hidden; /* Hide any overflow */
+    width: 90vw; /* Adjusted for responsiveness */
+    max-width: 400px; /* Maintain max width */
+    height: auto; /* Set height to auto */
+    overflow: hidden;
     border: 2px solid #000;
 }
-
 
 #word-tiles-box {
     text-align: center;
@@ -118,36 +117,33 @@ body {
     cursor: not-allowed;
 }
 
-
-.zoomed-image-0 {
+.zoomed-image-0, .zoomed-image-1, .zoomed-image-2, .zoomed-image-3, .zoomed-image-4, .zoomed-image-5 {
     width: 100%; /* Set to 100% of the container initially */
     height: auto;
-    transform: scale(20); /* Scale the image up */
+}
+
+.zoomed-image-0 {
+    transform: scale(20);
 }
 
 .zoomed-image-1 {
-    width: 100%; /* Set to 100% of the container initially */
-    transform: scale(15); /* Scale the image up */
+    transform: scale(15);
 }
 
 .zoomed-image-2 {
-    width: 100%; /* Set to 100% of the container initially */
-    transform: scale(10); /* Scale the image up */
+    transform: scale(10);
 }
 
 .zoomed-image-3 {
-    width: 100%; /* Set to 100% of the container initially */
-    transform: scale(5); /* Scale the image up */
+    transform: scale(5);
 }
 
 .zoomed-image-4 {
-    width: 100%; /* Set to 100% of the container initially */
-    transform: scale(3); /* Scale the image up */
+    transform: scale(3);
 }
 
 .zoomed-image-5 {
-    width: 100%; /* Set to 100% of the container initially */
-    transform: scale(1); /* Scale the image up */
+    transform: scale(1);
 }
 
 #game-img {
@@ -155,3 +151,58 @@ body {
     height: auto;
 }
 
+/* Responsive styles */
+@media (max-width: 768px) {
+    #nav-bar {
+        height: 60px; /* Reduce height on smaller screens */
+    }
+
+    .button {
+        font-size: var(--font-size-small);
+        padding: 8px;
+        margin: 15px;
+    }
+
+    #stick-figure-box {
+        width: 85vw; /* Adjust width for mobile */
+        max-width: 350px; /* Maintain max width */
+    }
+
+    #word-tiles-box {
+        font-size: 1.5rem; /* Adjust font size for mobile */
+    }
+
+    #keyboard {
+        grid-template-columns: repeat(7, 1fr); /* Fewer buttons per row on mobile */
+    }
+
+    .keyboard-button {
+        padding: 8px; /* Smaller padding on buttons */
+        font-size: 14px; /* Smaller font size on buttons */
+    }
+}
+
+@media (max-width: 480px) {
+    #nav-bar {
+        height: 50px; /* Further reduce height on very small screens */
+    }
+
+    .button {
+        font-size: var(--font-size-small);
+        padding: 5px;
+        margin: 10px;
+    }
+
+    #stick-figure-box {
+        width: 80vw; /* Further adjust width for small mobile devices */
+        max-width: 300px; /* Maintain max width */
+    }
+
+    #word-tiles-box {
+        font-size: 1.2rem; /* Adjust font size for very small mobile devices */
+    }
+
+    #keyboard {
+        grid-template-columns: repeat(5, 1fr); /* Even fewer buttons per row */
+    }
+}

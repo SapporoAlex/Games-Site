@@ -15,23 +15,22 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
     text-decoration: none;
     width: 100%;
     height: 70px;
     background-color: var(--nav-bar-bg);
-    color:  var(--text-color);
+    color: var(--text-color);
     z-index: 1;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
 
 .button {
     position: relative;
     background-color: var(--button-idle);
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     border: none;
     margin: 20px;
     padding: 10px;
@@ -43,7 +42,6 @@
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
-
 
 .button:hover {
     background-color: var(--button-active);
@@ -69,7 +67,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--background-color);
-    color:  var(--text-color);
+    color: var(--text-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -94,7 +92,7 @@ gamebox {
 }
 
 .visible {
-    display: inline-block; /* or flex, or whatever display style suits your layout */
+    display: inline-block;
 }
 
 .move-buttons {
@@ -104,17 +102,78 @@ gamebox {
     justify-content: center;
     gap: 10px;
 }
-.row2 {
+
+.row2, .row1, .row3 {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     gap: 15px;
 }
-.row1 {
-    display: flex;
-    justify-content: center;
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    #nav-bar {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+    }
+
+    .button {
+        width: 80%;
+        margin: 10px 0;
+        padding: 8px;
+        font-size: var(--font-size-small);
+    }
+
+    #game-img {
+        width: 60px;
+    }
+
+    body {
+        padding: 10px;
+    }
+
+    #hs-title {
+        width: 90vw;
+    }
+
+    .move-buttons {
+        flex-direction: row;
+        gap: 5px;
+        flex-wrap: wrap;
+    }
+
+    .row2, .row1, .row3 {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .visible {
+        display: block;
+    }
 }
-.row3{
-    display: flex;
-    justify-content: center;
-} 
+
+@media (max-width: 480px) {
+    .button {
+        width: 90%;
+        padding: 6px;
+        font-size: var(--font-size-small);
+    }
+
+    #game-img {
+        width: 50px;
+    }
+
+    #nav-bar {
+        font-size: var(--font-size-small);
+    }
+
+    .move-buttons {
+        gap: 5px;
+        justify-content: space-around;
+    }
+
+    .row2, .row1, .row3 {
+        gap: 5px;
+    }
+}

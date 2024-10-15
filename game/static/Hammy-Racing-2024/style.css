@@ -1,0 +1,98 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0; /* Background color for the body */
+    font-family: Arial, sans-serif;
+}
+
+/* Canvas Styles */
+#gameCanvas {
+    border: 2px solid #333; /* Canvas border */
+    background-color: #eee; /* Background color for the canvas */
+    touch-action: none; /* Prevent touch events from scrolling the page */
+}
+
+/* Game Over Message Styles */
+.game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: black;
+    font-size: 24px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    border: 2px solid #333;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Timer Styles */
+.timer {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: black;
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Control Buttons */
+.controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+}
+
+.control-button {
+    width: 60px;
+    height: 60px;
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    border: none;
+    border-radius: 30px; /* Circular buttons */
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.control-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.control-button:active {
+    background-color: #388e3c; /* Darker green when pressed */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    #gameCanvas {
+        width: 100%;
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .timer {
+        font-size: 18px;
+    }
+
+    .control-button {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}

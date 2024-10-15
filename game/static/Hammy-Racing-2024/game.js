@@ -19,6 +19,27 @@ obstacleImage2.src = '/static/Hammy-Racing-2024/coins.png'; // Replace with the 
 const finishLineImage = new Image();
 finishLineImage.src = '/static/Hammy-Racing-2024/finish.png'; // Replace with the path to your second obstacle image
 
+document.getElementById('upButton').addEventListener('touchstart', () => {
+    car.dy = -car.speed;
+});
+
+document.getElementById('downButton').addEventListener('touchstart', () => {
+    car.dy = car.speed;
+});
+
+document.getElementById('upButton').addEventListener('touchend', () => {
+    car.dy = 0;
+});
+
+document.getElementById('downButton').addEventListener('touchend', () => {
+    car.dy = 0;
+});
+
+document.getElementById('restartButton').addEventListener('click', () => {
+    if (gameOver) {
+        restartGame();
+    }
+});
 
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
@@ -36,7 +57,7 @@ let car = {
 };
 
 let obstacles = [];
-let baseSpeed = 8;
+let baseSpeed = 5;
 let speedFactor = 2.5;
 let isSlowedDown = false;
 let bgX = 0;
@@ -107,7 +128,7 @@ function updateObstacles() {
         obstacles.shift();
     }
 
-    if (tilesPassed >= 4 && !obstacles.some(ob => ob.type === 'finish')) {
+    if (tilesPassed >= 20 && !obstacles.some(ob => ob.type === 'finish')) {
         obstacles.push({
             x: canvas.width,
             y: 0,
@@ -117,7 +138,7 @@ function updateObstacles() {
         });
     }
 
-    if (Math.random() < 0.02 && tilesPassed < 4) {
+    if (Math.random() < 0.02 && tilesPassed < 20) {
         let type = Math.random() < 0.5 ? 1 : 2;
         obstacles.push({
             x: canvas.width,

@@ -6,6 +6,7 @@ const downButton = document.getElementById('mc-down');
 const leftButton = document.getElementById('mc-left');
 const rightButton = document.getElementById('mc-right');
 const stopButton = document.getElementById('mc-stop');
+const controls = document.getElementById('controls')
 
 const ctx = canvas.getContext('2d');
 canvas.width = 450;
@@ -234,16 +235,21 @@ const detectionBar = new Bar(20, 10, 400, 30, 100, 'green');
 let gameOver = false;
 let scoreSaved = false; 
 
-upButton.addEventListener('touchstart', moveUp);
-upButton.addEventListener('mousedown', moveUp);
-downButton.addEventListener('touchstart', moveDown);
-downButton.addEventListener('mousedown', moveDown);
-leftButton.addEventListener('touchstart', moveLeft);
-leftButton.addEventListener('mousedown', moveLeft);
-rightButton.addEventListener('touchstart', moveRight);
-rightButton.addEventListener('mousedown', moveRight);
+let moveDirection = null; // Track the current direction
+
+upButton.addEventListener('touchstart', () => { moveDirection = 'up'; });
+upButton.addEventListener('mousedown', () => { moveDirection = 'up'; });
+downButton.addEventListener('touchstart', () => { moveDirection = 'down'; });
+downButton.addEventListener('mousedown', () => { moveDirection = 'down'; });
+leftButton.addEventListener('touchstart', () => { moveDirection = 'left'; });
+leftButton.addEventListener('mousedown', () => { moveDirection = 'left'; });
+rightButton.addEventListener('touchstart', () => { moveDirection = 'right'; });
+rightButton.addEventListener('mousedown', () => { moveDirection = 'right'; });
 stopButton.addEventListener('touchstart', stopMovement);
 stopButton.addEventListener('mousedown', stopMovement);
+
+window.addEventListener('touchend', () => { moveDirection = null; });
+window.addEventListener('mouseup', () => { moveDirection = null; });
 
 
 function moveUp() {
@@ -399,6 +405,8 @@ function getCSRFToken() {
     return cookieValue || '';
 }
 
+bgm.loop = true;
+bgm.play();
 
 // Game loop
 function gameLoop() {
@@ -409,11 +417,15 @@ function gameLoop() {
         displayGameOverMessage(player.score);
         playAgainBtn.classList.remove('hidden');
         playAgainBtn.classList.add('visible');
+        controls.classList.remove('visible');
+        controls.classList.add('hidden');
         playAgainBtn.onclick = function() {
             scoreSaved = false; // Reset score save flag
             resetGame();
             playAgainBtn.classList.remove('visible');
             playAgainBtn.classList.add('hidden');
+            controls.classList.remove('hidden');
+            controls.classList.add('visible');
         };
         return; // Exit the loop early if the game is over
     }
@@ -421,26 +433,34 @@ function gameLoop() {
     ctx.fillStyle = 'darkblue';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Update player position
     if (!player.isFrozen) {
-        if (keys['ArrowUp'] && player.y > 0) {
-            player.y -= 5;
-            player.moveUp();
+        if (keys['ArrowUp'] || moveDirection === 'up') {
+            if (player.y > 0) {
+                player.y -= 5;
+                player.moveUp();
+            }
         }
-        if (keys['ArrowDown'] && player.y < 400) {
-            player.y += 5;
-            player.moveDown();
+        if (keys['ArrowDown'] || moveDirection === 'down') {
+            if (player.y < canvas.height - player.height) {
+                player.y += 5;
+                player.moveDown();
+            }
         }
-        if (keys['ArrowLeft'] && player.x > 0) {
-            player.x -= 5;
-            player.moveLeft();
+        if (keys['ArrowLeft'] || moveDirection === 'left') {
+            if (player.x > 0) {
+                player.x -= 5;
+                player.moveLeft();
+            }
         }
-        if (keys['ArrowRight'] && player.x < 400) {
-            player.x += 5;
-            player.moveRight();
+        if (keys['ArrowRight'] || moveDirection === 'right') {
+            if (player.x < canvas.width - player.width) {
+                player.x += 5;
+                player.moveRight();
+            }
         }
 
-        if (!keys['ArrowUp'] && !keys['ArrowDown'] && !keys['ArrowLeft'] && !keys['ArrowRight']) {
+        // Stop the player if no direction is pressed
+        if (!keys['ArrowUp'] && !keys['ArrowDown'] && !keys['ArrowLeft'] && !keys['ArrowRight'] && !moveDirection) {
             player.standStill();
         }
     }
@@ -495,3 +515,4 @@ function gameLoop() {
 }
 
 gameLoop();
+

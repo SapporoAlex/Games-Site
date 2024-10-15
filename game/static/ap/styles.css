@@ -2,8 +2,10 @@ body {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   width: 100vw; /* Full viewport width */
   height: 100vh; /* Full viewport height */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  overflow-x: hidden; /* Prevent horizontal overflow */
 }
-
 
 #bg {
   position: fixed; /* Keeps the background image fixed in place */
@@ -25,12 +27,14 @@ button {
   background-image: linear-gradient(#ffea8b, #b18700);
   border: 3px solid #b18700;
   font-size: 1.3rem;
+  padding: 10px; /* Add padding for better touch targets */
 }
 
 img {
   margin: 5px;
-  max-height: 70vh;
-  min-width: auto;
+  max-height: 50vh; /* Reduced max height for images */
+  width: auto; /* Maintain aspect ratio */
+  max-width: 100%; /* Responsive width */
   border: solid 5px #000000;
 }
 
@@ -41,7 +45,7 @@ img {
   color: #ffffff;
   padding: 30px;
   margin: 30px;
-  display: column;
+  display: flex; /* Use flexbox for centering */
   justify-content: center;
 }
 
@@ -76,7 +80,8 @@ img {
 
 #info-text {
   height: auto;
-  width: 30vw;
+  width: 80%; /* Set width to a percentage for responsiveness */
+  max-width: 600px; /* Add a max width for larger screens */
   font-size: 1.2rem;
   border: #003605 solid 2px;
   background-color: #005a08da;
@@ -86,7 +91,7 @@ img {
 }
 
 #game {
-  max-width: 90vw;
+  max-width: 90vw; /* Full width but limits on larger screens */
   max-height: auto;
   background-color: #00750ab7;
   color: #ffffff;
@@ -113,6 +118,7 @@ img {
   display: flex;
   justify-content: center;
   gap: 10px;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
 }
 
 #game-image-box {
@@ -159,111 +165,35 @@ img {
   height: 30px;
 }
 
-#publicOrderValue {
-  width: 50%;
-  background: linear-gradient(#000280, #0051ff, #000280);
+.progress-bar div {
+  height: 100%; /* Ensure full height */
 }
 
-#publicOrderValueRemainder {
-  width: 50%;
-  background-color: #031100b2;
-}
-
-#publicOrderValueText {
-  position: absolute;
-  top: 10px; /* Adjust this value as needed to position the text above the bars */
-  left: 0;
-  width: 100%;
-  text-align: center;
-  color: white; /* Adjust text color as needed */
-}
-
-#democracyValue {
-  width: 50%;
-  background: linear-gradient(#000280, #0051ff, #000280);
-}
-
-#democracyValueRemainder {
-  width: 50%;
-  background-color: #110000b2;
-}
-
-#democracyValueText {
-  position: absolute;
-  top: 10px; /* Adjust this value as needed to position the text above the bars */
-  left: 0;
-  width: 100%;
-  text-align: center;
-  color: white; /* Adjust text color as needed */
-}
-
-#lawValue {
-  width: 50%;
-  background: linear-gradient(#000280, #0051ff, #000280);
-}
-
-#lawValueRemainder {
-  width: 50%;
-  background-color: #031100b2;
-}
-
-#lawValueText {
-  position: absolute;
-  top: 10px; /* Adjust this value as needed to position the text above the bars */
-  left: 0;
-  width: 100%;
-  text-align: center;
-  color: white; /* Adjust text color as needed */
-}
-
-#militaryStrengthValue {
-  width: 50%;
-  background: linear-gradient(#000280, #0051ff, #000280);
-}
-
-#militaryStrengthValueRemainder {
-  width: 50%;
-  background-color: #110000b2;
-}
-
-#militaryStrengthValueText {
-  position: absolute;
-  top: 10px; /* Adjust this value as needed to position the text above the bars */
-  left: 0;
-  width: 100%;
-  text-align: center;
-  color: white; /* Adjust text color as needed */
-}
-
-#personalSecurityValue {
-  width: 50%;
-  background: linear-gradient(#000280, #0051ff, #000280);
-}
-
-#personalSecurityValueRemainder {
-  width: 50%;
-  background-color: #031100b2;
-}
-
-#personalSecurityText {
-  position: absolute;
-  top: 10px; /* Adjust this value as needed to position the text above the bars */
-  left: 0;
-  width: 100%;
-  text-align: center;
-  color: white; /* Adjust text color as needed */
-}
-
+#publicOrderValue,
+#democracyValue,
+#lawValue,
+#militaryStrengthValue,
+#personalSecurityValue,
 #rebelStrengthValue {
   width: 50%;
-  background: linear-gradient(#800000, #ff0000, #800000);
+  background: linear-gradient(#000280, #0051ff, #000280);
 }
 
+#publicOrderValueRemainder,
+#democracyValueRemainder,
+#lawValueRemainder,
+#militaryStrengthValueRemainder,
+#personalSecurityValueRemainder,
 #rebelStrengthValueRemainder {
   width: 50%;
-  background-color: #110000b2;
+  background-color: #031100b2;
 }
 
+#publicOrderValueText,
+#democracyValueText,
+#lawValueText,
+#militaryStrengthValueText,
+#personalSecurityText,
 #rebelStrengthValueText {
   position: absolute;
   top: 10px; /* Adjust this value as needed to position the text above the bars */
@@ -271,4 +201,46 @@ img {
   width: 100%;
   text-align: center;
   color: white; /* Adjust text color as needed */
+}
+
+/* Media Queries for Responsive Adjustments */
+@media (max-width: 768px) {
+  button {
+    font-size: 1.1rem; /* Smaller buttons on smaller screens */
+  }
+
+  #info-text {
+    width: 90%; /* Wider on smaller screens */
+  }
+
+  #game-title {
+    flex-direction: column; /* Stack title elements on small screens */
+  }
+
+  #image-stats {
+    flex-direction: column; /* Stack images on small screens */
+  }
+
+  img {
+    max-height: 40vh; /* Further reduce image height on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  button {
+    font-size: 1rem; /* Even smaller buttons */
+  }
+
+  #foreword-box {
+    font-size: 1.1rem; /* Smaller font size */
+    padding: 20px; /* Less padding */
+  }
+
+  #info-text {
+    font-size: 1rem; /* Smaller text size */
+  }
+
+  #stats-box td {
+    font-size: 1em; /* Adjust table font size */
+  }
 }
