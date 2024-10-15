@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-)mn95t!c)7p&5t+-q174x4%*$hhbl-k-o5zvz7ve2pcl-dv)_)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['hamster-games.onrender.com']
 
 
 # Application definition
