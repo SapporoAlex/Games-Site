@@ -13,6 +13,10 @@
         <a href="{% url 'home' %}"><img src="{% static 'main/logo.png' %}" id="game-img"></a>
         <h1>Sign Up</h1>
     </span>
+    <br>
+    <h1>NOTICE!</h1>
+    <p>Under the current hosting plan, records and accounts will not remain on the database. Be aware that any accounts or records made will not be persistent.</p>
+    <br>
     <form method="post" id="signup-form">
         {% csrf_token %}
         {{ form.as_p }}
