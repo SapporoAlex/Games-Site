@@ -152,8 +152,8 @@ function detectCollision() {
 
 function displayGameOverMessage(timeTaken) {
     ctx.fillStyle = 'red';
-    ctx.font = '26px serif';
-    ctx.fillText(`Time: ${timeTaken.toFixed(2)} seconds`, canvas.width / 2 - 150, canvas.height / 2 - 20);
+    ctx.font = 'bold 28px serif';
+    ctx.fillText(`${timeTaken.toFixed(2)} seconds`, canvas.width / 2 - 150, canvas.height / 2 - 20);
     saveTime(timeTaken);  // Pass the timeTaken to the saveTime function
     ctx.fillText(`Finished!`, canvas.width / 2 - 150, canvas.height / 2 - 50);
 }
