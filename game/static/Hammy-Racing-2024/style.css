@@ -30,6 +30,11 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+#directions {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
 .button {
     position: relative;
     background-color: var(--button-idle);
