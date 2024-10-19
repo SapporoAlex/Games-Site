@@ -12,6 +12,14 @@ const ctx = canvas.getContext('2d');
 canvas.width = 450;
 canvas.height = 450;
 
+const directionalControls = document.querySelectorAll('.controls');
+
+directionalButtons.forEach(button => {
+    button.addEventListener('contextmenu', (event) => {
+        event.preventDefault();
+    });
+});
+
 // Nut class
 class Nut {
     constructor(x, y, nutImgs) {
