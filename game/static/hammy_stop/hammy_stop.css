@@ -105,14 +105,15 @@ gamebox {
 }
 
 .move-buttons {
+    display: none;
     margin-top: 10px;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 10px;
 }
 
 .move-buttons imgs{
+    display: none;
     width: 25vw;
     height: auto;
 }
@@ -157,6 +158,19 @@ gamebox {
         width: 80vw;
         height: auto;
     }
+    .move-buttons {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .move-buttons imgs{
+        width: 25vw;
+        height: auto;
+    }
+    
 }
 
 @media (max-width: 480px) {
