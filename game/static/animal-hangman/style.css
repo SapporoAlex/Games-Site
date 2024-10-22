@@ -11,6 +11,11 @@
     --font-size-small: 12px;
 }
 
+html {
+    margin: 0;
+    padding: 0;
+  }
+
 body {
     margin: 0;
     padding: 0;
@@ -35,7 +40,6 @@ body {
     background-color: var(--nav-bar-bg);
     color: var(--text-color);
     z-index: 1;
-    padding: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
