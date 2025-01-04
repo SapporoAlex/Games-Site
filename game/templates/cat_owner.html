@@ -14,7 +14,9 @@
         <h1 id="menu-title" class="visible">Cat Owner</h1>
         <button id="play" class="visible">Play</button>
         <button id="how-to" class="visible">How to Play</button>
-        <a href="{% url 'select_game' %}"><h2 id="exit-button">Exit</h2></a>
+        <form action="{% url 'select_game' %}" method="get" style="display: inline;">
+            <button id="exit-button" class="visible">Exit Game</button>
+        </form>
         <p id="how-to-popup" class="hidden">In cat owner you can adopt cats, feed them, click on them to examine and rename them. There is no goal to the game, just enjoy being a cat owner!</p>
         <button id="back" class="hidden">Back</button>
         <p id="disclaimer" class="visible">Disclaimer: The maker of Cat Owner does not endose inhumane treatment of animals.</p>  

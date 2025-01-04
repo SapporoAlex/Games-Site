@@ -71,7 +71,14 @@ var statsDiv = document.getElementById('catStats');
 var nameElement = document.getElementById('catName');
 var detailsElement = document.getElementById('catDetails');
 var isDesktop = window.innerWidth > 768;
+var isPhone = window.innerWidth < 600;
 var scaleFactor = 1;
+
+if (isPhone) {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerWidth;
+}
+
 function resizeCanvas(canvas, cats) {
     var isDesktop = window.innerWidth > 768;
     var scaleFactor = isDesktop ? 1.3 : 1;
@@ -834,7 +841,8 @@ function drawFloor() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     // Draw the floor image to cover the canvas
     ctx.drawImage(floor, 0, 0, canvas.width, canvas.height);
-}
+    }
+
 function checkHighestNo() {
     if (numberOfCats > highestNumberOfCats) {
         highestNumberOfCats = numberOfCats;
