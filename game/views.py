@@ -137,6 +137,9 @@ def african_president(request):
             return JsonResponse({'message': 'Win recorded for African President!'})
     return render(request, 'african_president.html')
 
+def cat_owner(request):
+    return render(request, 'cat_owner.html')
+
 def hammy_racing(request):
     if request.method == 'POST':
         try:

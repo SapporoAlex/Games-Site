@@ -21,7 +21,7 @@
         {% endif %}    
     </span>
     <span id="latest">
-        <a href="{% url 'hammy_stop' %}"><img src="{% static 'main/latest.png' %}" id="latest-img"></a>
+        <a href="{% url 'cat_owner' %}"><img src="{% static 'main/co_latest.png' %}" id="latest-img"></a>
     </span>
     <h2 class="category">Games</h2>
     <section id="library">
@@ -36,6 +36,10 @@
                     <img src="{% static 'main/animalHangman.jpg' %}">
                 </a>
             </div>
+            <div class="game-item">
+                <a href="{% url 'cat_owner' %}">
+                    <img src="{% static 'main/catOwner.png' %}">
+                </a>
             <div class="game-item">
                 <a href="{% url 'hammy_racing' %}">
                     <img src="{% static 'main/hammyRacing.jpg' %}">

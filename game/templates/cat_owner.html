@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="cat_owner.css">
+    <link rel="stylesheet" href="{% static 'cat_owner/cat_owner.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cat Owner</title>
 </head>
@@ -13,7 +13,8 @@
         <h1 id="menu-title" class="visible">Cat Owner</h1>
         <button id="play" class="visible">Play</button>
         <button id="how-to" class="visible">How to Play</button>
-        <p id="how-to-popup" class="hidden">Cat Owner is a game where you... own cats. Will you focus all your love on one, or perhaps try to own as many as you can. Feed them when needed. Have fun in this sandbox style cat owner experience.</p>
+        <a href="{% url 'select_game' %}"><h2 id="exit-button">Exit</h2></a>
+        <p id="how-to-popup" class="hidden">In cat owner you can adopt cats, feed them, click on them to examine and rename them. There is no goal to the game, just enjoy being a cat owner!</p>
         <button id="back" class="hidden">Back</button>
         <p id="disclaimer" class="visible">Disclaimer: The maker of Cat Owner does not endose inhumane treatment of animals.</p>  
     </div>
@@ -44,6 +45,6 @@
         <button id="rename">Rename</button>
       </div>
 
-    <script src="cat_owner.js"></script>
+    <script src="{% static 'cat_owner/cat_owner.js' %}"></script>
 </body>
 </html>

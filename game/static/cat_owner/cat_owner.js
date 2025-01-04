@@ -5,7 +5,7 @@ var ctx = canvas.getContext("2d");
 canvas.width = 450;
 canvas.height = 450;
 var floor = new Image();
-floor.src = "assets/img/floor.png";
+floor.src = "co_assets/img/floor.png";
 floor.onload = function () {
     drawFloor();
 };
@@ -222,7 +222,7 @@ var Bowl = /** @class */ (function () {
         this.maxImages = 5; // Maximum number of bowl images
         this.xpos = canvas.width - 100; // Bowl's x position
         this.ypos = 100; // Bowl's y position
-        this.imageBasePath = "assets/img/bowl"; // Base path for images
+        this.imageBasePath = "co_assets/img/bowl"; // Base path for images
         this.currentImage = new Image();
         this.updateBowlImage();
         this.height = 40;
@@ -351,7 +351,7 @@ var Cat = /** @class */ (function () {
             _this.images[state] = [];
             for (var i = 1; i <= 2; i++) { // Assuming 2 frames per state
                 var img = new Image();
-                img.src = "assets/img/".concat(_this.color).concat(state).concat(i, ".png");
+                img.src = "co_assets/img/".concat(_this.color).concat(state).concat(i, ".png");
                 _this.images[state].push(img);
             }
         });

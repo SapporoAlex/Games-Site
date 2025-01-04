@@ -77,7 +77,7 @@ body, html {
 }
 
 /* Buttons */
-button {
+button, a {
     background-color: #ffd700;
     border: 2px solid #ff8b8b;
     border-radius: 10px;
