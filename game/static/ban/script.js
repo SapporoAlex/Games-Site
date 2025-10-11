@@ -27,105 +27,105 @@ let isMusic = true;
 canvas.width = 500;
 canvas.height = 700;
 let lostText = loseMessages[Math.floor(Math.random() * loseMessages.length)];
-const winSound = new Audio("assets/audio/win.mp3");
-const loseSound = new Audio("assets/audio/lose.mp3");
-const menuMusic = new Audio("assets/audio/menu.mp3");
-const missionMusic1 = new Audio("assets/audio/mission1.mp3");
-const missionMusic2 = new Audio("assets/audio/mission2.mp3");
-const missionMusic3 = new Audio("assets/audio/mission3.mp3");
-const shootSound = new Audio("assets/audio/shoot.mp3");
-const hitSound = new Audio("assets/audio/ouch.mp3");
-const alertSound = new Audio("assets/audio/alert.mp3");
-const bombDet = new Audio("assets/audio/bombDet.mp3");
-const cutsceneMusic = new Audio("assets/audio/cut.mp3");
-const clearedSound = new Audio("assets/audio/cleared.mp3");
-const buttonSound = new Audio("assets/audio/buttonSound.mp3");
+const winSound = new Audio("/static/ban/assets/audio/win.mp3");
+const loseSound = new Audio("/static/ban/assets/audio/lose.mp3");
+const menuMusic = new Audio("/static/ban/assets/audio/menu.mp3");
+const missionMusic1 = new Audio("/static/ban/assets/audio/mission1.mp3");
+const missionMusic2 = new Audio("/static/ban/assets/audio/mission2.mp3");
+const missionMusic3 = new Audio("/static/ban/assets/audio/mission3.mp3");
+const shootSound = new Audio("/static/ban/assets/audio/shoot.mp3");
+const hitSound = new Audio("/static/ban/assets/audio/ouch.mp3");
+const alertSound = new Audio("/static/ban/assets/audio/alert.mp3");
+const bombDet = new Audio("/static/ban/assets/audio/bombDet.mp3");
+const cutsceneMusic = new Audio("/static/ban/assets/audio/cut.mp3");
+const clearedSound = new Audio("/static/ban/assets/audio/cleared.mp3");
+const buttonSound = new Audio("/static/ban/assets/audio/buttonSound.mp3");
 missionMusic1.volume = 0.3;
 missionMusic2.volume = 0.3;
 missionMusic3.volume = 0.3;
 winSound.volume = 0.3;
 const gibberish = [
-    new Audio("assets/audio/nuts/1.mp3"),
-    new Audio("assets/audio/nuts/2.mp3"),
-    new Audio("assets/audio/nuts/3.mp3"),
-    new Audio("assets/audio/nuts/4.mp3"),
-    new Audio("assets/audio/nuts/5.mp3"),
-    new Audio("assets/audio/nuts/6.mp3"),
-    new Audio("assets/audio/nuts/7.mp3"),
-    new Audio("assets/audio/nuts/8.mp3"),
-    new Audio("assets/audio/nuts/9.mp3"),
-    new Audio("assets/audio/nuts/10.mp3"),
-    new Audio("assets/audio/nuts/11.mp3"),
-    new Audio("assets/audio/nuts/12.mp3"),
-    new Audio("assets/audio/nuts/13.mp3"),
-    new Audio("assets/audio/nuts/14.mp3"),
-    new Audio("assets/audio/nuts/15.mp3"),
-    new Audio("assets/audio/nuts/16.mp3"),
-    new Audio("assets/audio/nuts/17.mp3"),
-    new Audio("assets/audio/nuts/18.mp3"),
-    new Audio("assets/audio/nuts/19.mp3"),
-    new Audio("assets/audio/nuts/20.mp3"),
-    new Audio("assets/audio/nuts/21.mp3"),
-    new Audio("assets/audio/nuts/22.mp3"),
-    new Audio("assets/audio/nuts/23.mp3"),
-    new Audio("assets/audio/nuts/24.mp3"),
-    new Audio("assets/audio/nuts/25.mp3"),
-    new Audio("assets/audio/nuts/26.mp3"),
-    new Audio("assets/audio/nuts/27.mp3"),
-    new Audio("assets/audio/nuts/28.mp3"),
-    new Audio("assets/audio/nuts/29.mp3"),
-    new Audio("assets/audio/nuts/30.mp3"),
-    new Audio("assets/audio/nuts/31.mp3"),
-    new Audio("assets/audio/nuts/32.mp3"),
-    new Audio("assets/audio/nuts/33.mp3"),
-    new Audio("assets/audio/nuts/34.mp3"),
-    new Audio("assets/audio/nuts/35.mp3"),
-    new Audio("assets/audio/nuts/36.mp3")
+    new Audio("/static/ban/assets/audio/nuts/1.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/2.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/3.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/4.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/5.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/6.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/7.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/8.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/9.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/10.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/11.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/12.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/13.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/14.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/15.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/16.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/17.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/18.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/19.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/20.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/21.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/22.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/23.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/24.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/25.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/26.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/27.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/28.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/29.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/30.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/31.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/32.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/33.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/34.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/35.mp3"),
+    new Audio("/static/ban/assets/audio/nuts/36.mp3")
 ];
 const titleImage = new Image();
-titleImage.src = "assets/images/cutscenes/title.png";
+titleImage.src = "/static/ban/assets/images/cutscenes/title.png";
 const lvlOneImage = new Image();
-lvlOneImage.src = "assets/images/maps/lvlone.jpg";
+lvlOneImage.src = "/static/ban/assets/images/maps/lvlone.jpg";
 const lvlTwoImage = new Image();
-lvlTwoImage.src = "assets/images/maps/lvltwo.jpg";
+lvlTwoImage.src = "/static/ban/assets/images/maps/lvltwo.jpg";
 const lvlThreeImage = new Image();
-lvlThreeImage.src = "assets/images/maps/lvlthree.jpg";
+lvlThreeImage.src = "/static/ban/assets/images/maps/lvlthree.jpg";
 const loseImage = new Image();
-loseImage.src = "assets/images/cutscenes/lose.png";
+loseImage.src = "/static/ban/assets/images/cutscenes/lose.png";
 const winImage = new Image();
-winImage.src = "assets/images/cutscenes/win.png";
+winImage.src = "/static/ban/assets/images/cutscenes/win.png";
 const cS10 = new Image();
-cS10.src = "assets/images/cutscenes/cs10.png";
+cS10.src = "/static/ban/assets/images/cutscenes/cs10.png";
 const cS11 = new Image();
-cS11.src = "assets/images/cutscenes/cs11.png";
+cS11.src = "/static/ban/assets/images/cutscenes/cs11.png";
 const cS21 = new Image();
-cS21.src = "assets/images/cutscenes/cs21.png";
+cS21.src = "/static/ban/assets/images/cutscenes/cs21.png";
 const cS22 = new Image();
-cS22.src = "assets/images/cutscenes/cs22.png";
+cS22.src = "/static/ban/assets/images/cutscenes/cs22.png";
 const cS31 = new Image();
-cS31.src = "assets/images/cutscenes/cs31.png";
+cS31.src = "/static/ban/assets/images/cutscenes/cs31.png";
 const cS32 = new Image();
-cS32.src = "assets/images/cutscenes/cs32.png";
+cS32.src = "/static/ban/assets/images/cutscenes/cs32.png";
 const cS41 = new Image();
-cS41.src = "assets/images/cutscenes/cs41.png";
+cS41.src = "/static/ban/assets/images/cutscenes/cs41.png";
 const credits = new Image();
-credits.src = "assets/images/cutscenes/credits.png";
+credits.src = "/static/ban/assets/images/cutscenes/credits.png";
 const howTo = new Image();
-howTo.src = "assets/images/cutscenes/howto.png";
+howTo.src = "/static/ban/assets/images/cutscenes/howto.png";
 const startBtn = new Image();
-startBtn.src = "assets/images/ui/startBtn.jpg";
+startBtn.src = "/static/ban/assets/images/ui/startBtn.jpg";
 const howToBtn = new Image();
-howToBtn.src = "assets/images/ui/howToBtn.jpg";
+howToBtn.src = "/static/ban/assets/images/ui/howToBtn.jpg";
 const creditsBtn = new Image();
-creditsBtn.src = "assets/images/ui/creditsBtn.jpg";
+creditsBtn.src = "/static/ban/assets/images/ui/creditsBtn.jpg";
 const nextBtn = new Image();
-nextBtn.src = "assets/images/ui/nextBtn.jpg";
+nextBtn.src = "/static/ban/assets/images/ui/nextBtn.jpg";
 const backBtn = new Image();
-backBtn.src = "assets/images/ui/backBtn.jpg";
+backBtn.src = "/static/ban/assets/images/ui/backBtn.jpg";
 const logo1 = new Image();
-logo1.src = "assets/images/cutscenes/titleText1.png";
+logo1.src = "/static/ban/assets/images/cutscenes/titleText1.png";
 const logo2 = new Image();
-logo2.src = "assets/images/cutscenes/titleText2.png";
+logo2.src = "/static/ban/assets/images/cutscenes/titleText2.png";
 let backgroundImage = titleImage;
 titleImage.onload = () => {
     drawBackground();
@@ -191,7 +191,7 @@ function getFramesForState(enemy, color, state) {
     const frameCount = frameCounts[state] || 1; // Default to 1 frame if state is unknown
     return Array.from({ length: frameCount }, (_, i) => {
         const img = new Image();
-        img.src = `assets/images/civs/${enemy}${color}${state}${i + 1}.png`;
+        img.src = `/static/ban/assets/images/civs/${enemy}${color}${state}${i + 1}.png`;
         return img;
     });
 }

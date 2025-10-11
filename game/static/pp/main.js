@@ -8,8 +8,8 @@ const retry = document.getElementById('retry');
 const scoreSection = document.getElementById('score-section');
 const scoreDisplay = document.getElementById('score-display');
 
-const correctSound = new Audio('correct.mp3');
-const incorrectSound = new Audio('incorrect.mp3');
+const correctSound = new Audio('/static/pp/correct.mp3');
+const incorrectSound = new Audio('/static/pp/incorrect.mp3');
 
 let bestScore = localStorage.getItem('bestScore') || 0;
 bestScoreText.textContent = bestScore;
@@ -23,7 +23,7 @@ async function initGame() {
   const container = document.getElementById('map-container');
   container.innerHTML = '';
 
-  const res = await fetch('map.svg');
+  const res = await fetch('/static/pp/map.svg');
   container.innerHTML = await res.text();
   await new Promise(resolve => requestAnimationFrame(resolve));
 
