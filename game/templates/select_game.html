@@ -11,9 +11,9 @@
 <body>
     <span id="nav-bar">
         <a href="{% url 'home' %}"><img src="{% static 'main/logo.png' %}" id="game-img"></a>
+        <h1>Hamster Games</h1>
         {% if user.is_authenticated %}
         <p>Welcome, {{ user.username }}! </p>
-        <h1>Hamster Games</h1>
         <a class="button" href="{% url 'logout' %}">Log out</a>
         {% else %}
         <a class="button" href="{% url 'login' %}">Log in</a>
