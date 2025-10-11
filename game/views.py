@@ -140,6 +140,12 @@ def african_president(request):
 def cat_owner(request):
     return render(request, 'cat_owner.html')
 
+def cat_owner(request):
+    return render(request, 'prefecture_perfect.html')
+
+def cat_owner(request):
+    return render(request, 'bust_a_nut.html')
+
 def hammy_racing(request):
     if request.method == 'POST':
         try:

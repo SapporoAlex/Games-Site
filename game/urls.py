@@ -14,4 +14,6 @@ urlpatterns = [
     path('hammy_racing/', views.hammy_racing, name='hammy_racing'),
     path('hammy_stop/', views.hammy_stop, name='hammy_stop'),
     path('cat_owner/', views.cat_owner, name='cat_owner'),
+    path('bust_a_nut/', views.bust_a_nut, name='views.bust_a_nut'),
+    path('prefecture_perfect/', views.prefecture_perfect, name='prefecture_perfect'),
 ]

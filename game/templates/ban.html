@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+        {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'ban/styles.css' %}">
+    <title>Bust a Nut</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Press Start 2P', cursive;
+            color: aliceblue;
+            background-image: url(assets/images/wallpaper.png);
+            background-color: #000768;
+        }
+        #gameCanvas {
+            border: 2px solid black;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>BUST A NUT!</h1>
+    <canvas id="gameCanvas"></canvas>
+    <div id="options">
+        <button class="optionBtn" id="pauseBtn">&#8214;</button>
+        <button class="optionBtn" id="musicBtn"><s>&#9835;</s></button>
+    </div>
+    <script src="{% static 'ban/script.js' %}"></script>
+</body>
+</html>
