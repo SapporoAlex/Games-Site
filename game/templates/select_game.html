@@ -11,7 +11,6 @@
 <body>
     <span id="nav-bar">
         <a href="{% url 'home' %}"><img src="{% static 'main/logo.png' %}" id="game-img"></a>
-        <h1>Library</h1>
         {% if user.is_authenticated %}
         <p>Welcome, {{ user.username }}! </p>
         <a class="button" href="{% url 'logout' %}">Log out</a>
@@ -20,46 +19,50 @@
         <a class="button" href="{% url 'signup' %}">Sign Up</a>
         {% endif %}    
     </span>
+
     <span id="latest">
         <a href="{% url 'cat_owner' %}"><img src="{% static 'main/co_latest.png' %}" id="latest-img"></a>
     </span>
-    <h2 class="category">Games</h2>
-    <section id="library">
-        <div class="game-grid">
-            <div class="game-item">
-                <a href="{% url 'african_president' %}">
-                    <img src="{% static 'main/africanPresident.jpg' %}">
-                </a>
-            </div>
-            <div class="game-item">
-                <a href="{% url 'animal_hangman' %}">
-                    <img src="{% static 'main/animalHangman.jpg' %}">
-                </a>
-            </div>
-            <div class="game-item">
-                <a href="{% url 'bust_a_nut' %}">
-                    <img src="{% static 'main/bustANut.jpg' %}">
-                </a>
-            </div>
-            <div class="game-item">
-                <a href="{% url 'cat_owner' %}">
-                    <img src="{% static 'main/catOwner.png' %}">
-                </a>
-            </div>
-            <div class="game-item">
-                <a href="{% url 'hammy_racing' %}">
-                    <img src="{% static 'main/hammyRacing.jpg' %}">
-                </a>
-            </div>
-            <div class="game-item">
-                <a href="{% url 'hammy_stop' %}">
-                    <img src="{% static 'main/icon.jpg' %}">
-                </a>
-            </div>
-            <div class="game-item">
-                <a href="{% url 'prefecture_perfect' %}">
-                    <img src="{% static 'main/prefecturePerfect.jpg' %}">
-                </a>
+    <div class="container">
+        <h1>Library</h1>
+        <h2 class="category">Games</h2>
+        <section id="library">
+            <div class="game-grid">
+                <div class="game-item">
+                    <a href="{% url 'african_president' %}">
+                        <img src="{% static 'main/africanPresident.jpg' %}">
+                    </a>
+                </div>
+                <div class="game-item">
+                    <a href="{% url 'animal_hangman' %}">
+                        <img src="{% static 'main/animalHangman.jpg' %}">
+                    </a>
+                </div>
+                <div class="game-item">
+                    <a href="{% url 'bust_a_nut' %}">
+                        <img src="{% static 'main/bustANut.jpg' %}">
+                    </a>
+                </div>
+                <div class="game-item">
+                    <a href="{% url 'cat_owner' %}">
+                        <img src="{% static 'main/catOwner.png' %}">
+                    </a>
+                </div>
+                <div class="game-item">
+                    <a href="{% url 'hammy_racing' %}">
+                        <img src="{% static 'main/hammyRacing.jpg' %}">
+                    </a>
+                </div>
+                <div class="game-item">
+                    <a href="{% url 'hammy_stop' %}">
+                        <img src="{% static 'main/icon.jpg' %}">
+                    </a>
+                </div>
+                <div class="game-item">
+                    <a href="{% url 'prefecture_perfect' %}">
+                        <img src="{% static 'main/prefecturePerfect.jpg' %}">
+                    </a>
+                </div>
             </div>
         </div>
     </section>

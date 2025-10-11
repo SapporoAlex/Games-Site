@@ -105,6 +105,14 @@ body {
 }
 
 /* This is where the games will be */
+
+.container {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
 #library {
     display: flex;
     justify-content: center;
