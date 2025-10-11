@@ -108,9 +108,11 @@ body {
 
 .container {
     max-width: 90%;
+    width: auto;
     display: flex;
     flex-direction: column;
     text-align: left;
+    padding-inline: 5%;
 }
 
 #library {
