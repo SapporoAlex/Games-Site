@@ -140,10 +140,10 @@ def african_president(request):
 def cat_owner(request):
     return render(request, 'cat_owner.html')
 
-def cat_owner(request):
+def prefecture_perfect(request):
     return render(request, 'prefecture_perfect.html')
 
-def cat_owner(request):
+def bust_a_nut(request):
     return render(request, 'bust_a_nut.html')
 
 def hammy_racing(request):
