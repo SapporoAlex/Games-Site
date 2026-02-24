@@ -15,5 +15,6 @@ urlpatterns = [
     path('hammy_stop/', views.hammy_stop, name='hammy_stop'),
     path('cat_owner/', views.cat_owner, name='cat_owner'),
     path('bust_a_nut/', views.bust_a_nut, name='bust_a_nut'),
+    path('block_by_block/', views.block_by_block, name='block_by_block'),
     path('prefecture_perfect/', views.prefecture_perfect, name='prefecture_perfect'),
 ]

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+        {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'bbb/styles.css' %}">
+    <title>Block By Block</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <p class="console-info"></p>
+    <div class="filter"></div>
+    <div class="grid-bg">
+        <div class="verts">
+            <div class="vertical-line"></div>
+            <div class="vertical-line"></div>
+            <div class="vertical-line"></div>
+            <div class="vertical-line"></div>
+            <div class="vertical-line"></div>
+            <div class="vertical-line"></div>
+            <div class="vertical-line"></div>
+            <div class="vertical-line"></div>
+            <div class="vertical-line"></div>
+            <div class="vertical-line"></div>
+            <div class="vertical-line"></div>
+            <div class="vertical-line"></div>
+            <div class="vertical-line"></div>
+            <div class="vertical-line"></div>
+            <div class="vertical-line"></div>
+            <div class="vertical-line"></div>
+            <div class="vertical-line"></div>
+            <div class="vertical-line"></div>
+            <div class="vertical-line"></div>
+            <div class="vertical-line"></div>
+            <div class="vertical-line"></div>
+            <div class="vertical-line"></div>
+            <div class="vertical-line"></div>
+            <div class="vertical-line"></div>
+        </div>
+        <div class="hors">
+            <div class="horizontal-line"></div>
+            <div class="horizontal-line"></div>
+            <div class="horizontal-line"></div>
+            <div class="horizontal-line"></div>
+            <div class="horizontal-line"></div>
+            <div class="horizontal-line"></div>
+            <div class="horizontal-line"></div>
+            <div class="horizontal-line"></div>
+            <div class="horizontal-line"></div>
+            <div class="horizontal-line"></div>
+            <div class="horizontal-line"></div>
+            <div class="horizontal-line"></div>
+            <div class="horizontal-line"></div>
+            <div class="horizontal-line"></div>
+            <div class="horizontal-line"></div>
+            <div class="horizontal-line"></div>
+            <div class="horizontal-line"></div>
+            <div class="horizontal-line"></div>
+            <div class="horizontal-line"></div>
+            <div class="horizontal-line"></div>
+            <div class="horizontal-line"></div>
+            <div class="horizontal-line"></div>
+            <div class="horizontal-line"></div>
+            <div class="horizontal-line"></div>
+        </div>
+    </div>
+    <div class="game-bg is-off">
+    </div>
+
+    <div class="fade"></div>
+    <section class="top-page is-on">
+        <h1 class="game-title">BL0CK BY BL0CK</h1>
+        <h2 class="game-subtitle text">Start</h2>
+    </section>
+
+    <section class="setup-page is-off">
+        <div class="menu-box">
+            <button class="btn clickable" id="start-game-btn">Begin Operation</button>
+        </div>
+    </section>
+    <section class="game-page is-off">
+    <div class="top-title">BL0CK BY BL0CK</div>
+        <div style="padding:0px 14px">
+            <div class="wrap">
+
+                <div class="board-wrap">
+                    <div id="grid" class="grid"></div>
+                </div>
+
+                <aside class="controls">
+                <div class="panel">
+                    <div class="panel-sub" id="purchasePanel">
+                    <div style="font-weight:700">Deployment Phase</div>
+                    <div style="display:flex;gap:8px;margin-top:8px">
+                        <button id="endPurchase" class="ghost">End Deployment</button>
+
+                    </div>
+                    </div>
+
+                    <div class="panel-sub" id="movePanel">
+                    <div style="font-weight:700">Order Phase</div>
+                    <div style="display:flex;gap:8px;margin-top:8px">
+                        <button id="endMove" class="ghost">End Orders</button>
+                    </div>
+                    </div>
+
+                    <div class="panel-sub">
+                    <div style="flex:1;text-align:right" class="small">Funds $<span id="credits">0</span></div>
+                    <div style="font-weight:700">Special Actions</div>
+                    <div style="display:flex;gap:6px;margin-top:8px;margin-bottom:8px;">
+                        <button id="himarsBtn">Launch HIMARs</button>
+                        <button id="droneBtn">Drone Strike</button>
+                    </div>
+                    <div class="small" id="specialHint"></div>
+                        <button id="resetBtn" class="ghost">Reset Game</button>
+                    </div>
+
+                    <div class="panel-sub">
+                    <div style="font-weight:700">Log</div>
+                    <div class="log" id="log"></div>
+                </div>
+
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <section class="game-over is-off">
+        <div class="menu-box">
+            <h2 id="gameOverMessage">You are victorious!</h2>
+            <button class="btn clickable" id="playAgainBtn">Play Again</button>
+        </div>
+    </section>
+
+    <script src="{% static 'bbb/script.js' %}"></script>
+</body>
+</html>

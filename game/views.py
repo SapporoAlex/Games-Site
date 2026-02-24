@@ -143,6 +143,9 @@ def cat_owner(request):
 def prefecture_perfect(request):
     return render(request, 'prefecture_perfect.html')
 
+def block_by_block(request):
+    return render(request, 'block_by_block.html')
+
 def bust_a_nut(request):
     return render(request, 'bust_a_nut.html')
 
