@@ -28,8 +28,12 @@ html,body{
     margin:0;
     background:var(--bg);
     color:var(--main);
-    font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica;
+    /* font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica; */
+    font-family: "VT323", monospace;
+    font-weight: 400;
+    font-style: normal;
     overflow: hidden;
+    cursor: crosshair;
 }
 
 .wrap{
@@ -46,18 +50,18 @@ html,body{
     }
 }
 .top-title {
-    font-weight: 700;
+    font-weight: 400;
     background: var(--main);
     width: 100%;
-        font-size: 20px;
+    font-size: 30px;
     color: var(--bg);
     text-align: center;
 }
 .board-wrap{
     background: var(--d10);
-    border: 1px solid var(--main);
+    border: 4px solid var(--main);
     padding:12px;
-    box-shadow: 0 0 5px var(--main);
+    /* box-shadow: 0 0 5px var(--main); */
 }
 
 .grid{
@@ -73,35 +77,34 @@ html,body{
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    font-size: 11px;
-    font-weight: 700;
+    font-size: 32px;
+    font-weight: 400;
     user-select: none;
     background: var(--neutral);
-    border: 1px solid rgba(0,0,0,.35);
+    border: 4px solid rgba(0,0,0,.35);
     transition: background 0.5s, border 0.3s, transform 0.3s, opacity 0.3s; /* 👈 Add this */
 }
 .cell.player{
     background:linear-gradient(180deg,rgba(43,140,255,.28),rgba(43,140,255,.12));
-    border:1px solid rgba(43,140,255,.45);
-    box-shadow: 0 0 10px var(--pmain);
+    border:2px solid rgba(43,140,255,.45);
+    /* box-shadow: 0 0 10px var(--pmain); */
 }
 .cell.Enemy{
     background:linear-gradient(180deg,rgba(255,82,82,.28),rgba(255,82,82,.12));
-    border:1px solid rgba(255,82,82,.45);
-    box-shadow: 0 0 10px var(--cmain);
+    border:2px solid rgba(255,82,82,.45);
+    /* box-shadow: 0 0 10px var(--cmain); */
 }
 .cell.neutral{
     background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01))}
 
 .controls{
-    max-width:420px;
+    width: 100%;
     height: auto;
-        gap: 10px;
+    gap: 10px;
     background: var(--bg);
-    padding:12px;
-    border: 1px solid var(--main);
-        box-shadow: 0 0 5px var(--main);
+
+    border: 4px solid var(--main);
+        /* box-shadow: 0 0 5px var(--main); */
 }
 .panel{
     display: flex;
@@ -122,28 +125,29 @@ html,body{
 }
 
 button{
+    width: 100%;
     background:var(--d10);
-    border: 1px solid var(--d50);
-    padding:8px 10px;
+    border: 2px solid var(--d50);
+    padding:8px 16px;
     color: var(--d100);
-    font-weight:700;
-    cursor:pointer
+    font-weight:400;
+    cursor: crosshair;
 }
 button.ghost{
     background:transparent;
-    border: 1px solid var(var(--d50));
+    border: 2px solid var(var(--d50));
     color: var(--d100);
 }
 .small{
-    font-size:13px;
+    font-size:16px;
     color: var(--main);
     @media (max-width: 768px) {
-        font-size: 12px;
+        font-size: 16px;
     }
 }
 label{
     display:block;
-    font-size:13px;
+    font-size:24px;
     margin-bottom:6px
 }
 
@@ -152,7 +156,7 @@ label{
     overflow:auto;
     background:var(--d10);
     padding:8px;
-    font-size:13px;
+    font-size:16px;
     @media (max-width: 768px) {
         height: 80px;
     }
@@ -166,26 +170,26 @@ label{
 .chip{
     padding:6px 8px;
     background:var(--d10);
-    font-weight:700
+    font-weight:400
 }
 .selected{
     background:var(--d100);
 }
 .footer{
-    font-size:12px;
+    font-size:16px;
     color:var(--main);
     margin-top:8px
 }
 .muted{
     background:var(--d10);
-    font-size:13px
+    font-size:16px
 }
 .missile, .drone {
     position: fixed;
     width: 20px;
     height: 20px;
     background: var(--main);
-    box-shadow: 0 0 10px var(--d50);
+    /* box-shadow: 0 0 10px var(--d50); */
     transition: transform 0.6s linear;
     z-index: 9999;
 }
@@ -193,7 +197,7 @@ label{
     width: 10px;
     height: 10px;
     background: var(--main);
-    box-shadow: 0 0 10px var(--d50);
+    /* box-shadow: 0 0 10px var(--d50); */
 }
 
 
@@ -213,7 +217,7 @@ button {
 }
 
 h1, h2, h3, p {
-    text-shadow: 1px 1px 3px #adff2f;
+    /* text-shadow: 1px 1px 3px #adff2f; */
     color: var(--main);
     margin: 0;
 }
@@ -221,7 +225,9 @@ h1, h2, h3, p {
 html, body {
     margin: 0;
     padding: 0;
-    font-family: 'Share Tech Mono', monospace;
+    font-family: "VT323", monospace;
+    font-weight: 400;
+    font-style: normal;
     /* max-height: 100dvh; */
     height: auto;
     max-width: 100dvw;
@@ -250,9 +256,9 @@ html, body {
 
 .btn {
     padding: 5px 10px;
-    font-size: 20px;
+    font-size: 24px;
     background-color: var(--d50);
-    border: var(--main) solid 1px;
+    border: var(--main) solid 2px;
     color: var(--main);
     margin: 0 auto;
     justify-content: center;
@@ -286,6 +292,10 @@ html, body {
     height: 100dvh;
 }
 
+#gameOverMessage, #start-game-btn {
+    font-size: 32px;
+}
+
 .game-wrapper {
     display: flex;
     flex-direction: column;
@@ -316,7 +326,7 @@ html, body {
 .vertical-line {
     background-color: var(--main);
     height: 100%;
-    width: 1px;
+    width: 2px;
 }
 
 .hors {
@@ -334,7 +344,7 @@ html, body {
 .horizontal-line {
     background-color: var(--main);
     width: 100%;
-    height: 1px;
+    height: 2px;
 }
 
 .filter {
@@ -344,6 +354,7 @@ html, body {
     position: absolute;
     z-index: 10;
     pointer-events: none;
+  backdrop-filter: blur(0.6px);
 }
 
 .fade {
@@ -429,11 +440,11 @@ html, body {
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
     width: 100%;
-    aspect-ratio: 1 / 1;
+aspect-ratio: 1 / 1;    
     height: auto;
     align-items: center;
     background-color: var(--bg);
-    border: var(--main) solid 1px;
+    border: var(--main) solid 2px;
     z-index: 4;
 }
 
@@ -441,7 +452,7 @@ html, body {
     display: flex;
     width: 100%;
     height: auto;
-    border: var(--main) solid 1px;
+    border: var(--main) solid 2px;
     background-color: var(--bg);
     justify-content: center;
     align-items: center;
@@ -461,15 +472,16 @@ html, body {
 
 .button p {
     color: var(--bg);
+    font-size: 24px;
 }
 
 
 /* Boxes */
 
 .menu-box {
-    padding: 40px;
+    padding: 60px;
     background-color: var(--bg);
-    border: var(--main) solid 1px;
+    border: var(--main) solid 4px;
     color: var(--main);
     margin: 0 auto;
     justify-content: center;
@@ -487,7 +499,7 @@ html, body {
     max-width: 100%;
     padding: 10px;
     background-color: var(--bg);
-    border: var(--main) solid 1px;
+    border: var(--main) solid 2px;
     justify-content: space-evenly;
     gap: 10px;
     margin-bottom: 10px;
@@ -523,17 +535,17 @@ html, body {
     display: flex;
     flex-direction: row;
     height: 30px;
-    border: var(--main) 1px solid;
+    border: var(--main) 2px solid;
     margin-bottom: 10px;
     justify-content: center;
     text-align: center;
     align-items: center;
     background-color: var(--d90);
-    font-size: 16px;
+    font-size: 24px;
 }
 
 #state-message {
-    font-size: 20px;
+    font-size: 24px;
     text-align: center;
     color: #010200;
 }
@@ -679,6 +691,17 @@ html, body {
     cursor: crosshair;
 }
 
+.u-text-big {
+    font-size: 32px;
+}
+
+.u-text-med {
+    font-size: 24px;
+}
+
+.u-text-small {
+    font-size: 20px;
+}
 
 @keyframes glow {
     0% {
@@ -732,7 +755,7 @@ html, body {
 
 @media (min-width: 768px) {
     .game-wrapper {
-        max-width: 1200px;
+        max-width: 1600px;
     }
 
     .game-wrapper__inner {
@@ -756,6 +779,6 @@ html, body {
     }
 
     #squad-info-box p {
-        font-size: 20px;
+        font-size: 24px;
     }
 }
