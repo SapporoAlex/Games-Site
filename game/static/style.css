@@ -1,289 +1,323 @@
 :root {
-    --background-color: #202025;
-    --nav-bar-bg: #252535;
-    --text-color: rgb(247, 247, 247);
-    --button-idle: #ff9100;
-    --button-active: #ff5100;
-    --tertiary-color: #003366;
-    --text-dark: rgb(0, 0, 0);
-    --font-size-large: 24px;
-    --font-size-medium: 16px;
-    --font-size-small: 12px;
+  --background-color: #202025;
+  --nav-bar-bg: #252535;
+  --text-color: rgb(247, 247, 247);
+  --button-idle: #ff9100;
+  --button-active: #ff5100;
+  --tertiary-color: #003366;
+  --text-dark: rgb(0, 0, 0);
+  --font-size-large: 24px;
+  --font-size-medium: 16px;
+  --font-size-small: 12px;
 }
 
 html {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    background-color: var(--background-color);
-    color:  var(--text-color);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    font-family: 'Futura', 'Noto Sans JP', sans-serif;
+  margin: 0;
+  padding: 0;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(255, 145, 0, 0.16),
+      transparent 32%
+    ),
+    var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  font-family: "Futura", "Noto Sans JP", sans-serif;
 }
 
 #game-img {
-    width: 80px;
-    height: auto;
+  width: 80px;
+  height: auto;
 }
 
 #nav-bar {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content:space-evenly;
-    text-decoration: none;
-    width: 100%;
-    height: 70px;
-    background-color: var(--nav-bar-bg);
-    color:  var(--text-color);
-    z-index: 1;
-    padding: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  text-decoration: none;
+  width: 100%;
+  height: 70px;
+  background-color: var(--nav-bar-bg);
+  color: var(--text-color);
+  z-index: 1;
+  padding: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .button {
-    position: relative;
-    background-color: var(--button-idle);
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    border: none;
-    margin: 20px;
-    padding: 10px;
-    border-radius: 25px;
-    color: var(--text-color);
-    text-decoration: none;
-    font-size: var(--font-size-medium);
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+  position: relative;
+  background-color: var(--button-idle);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  border: none;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 25px;
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: var(--font-size-medium);
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
 }
 
 .button:hover {
-    background-color: var(--button-active);
-    transform: scale(1.05);
+  background-color: var(--button-active);
+  transform: scale(1.05);
 }
 
 .button:active {
-    background-color: var(--button-active);
-    transform: scale(0.98);
+  background-color: var(--button-active);
+  transform: scale(0.98);
 }
 
 .button:focus {
-    outline: 2px dashed var(--button-active);
+  outline: 2px dashed var(--button-active);
 }
 
 #home-intro {
-    width: 100%;
-    position: relative;
+  width: 100%;
+  position: relative;
 }
 
 #home-options {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 50px 0;
-    text-align: center;
-    gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  gap: 10px;
 }
 
 #home-options img {
-    padding: 10px;
+  padding: 10px;
 }
 
 /* This is where the games will be */
 
 .container {
-    max-width: 90%;
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    padding-inline: 5%;
+  width: min(1180px, calc(100% - 2rem));
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 1.5rem 0 3rem;
 }
 
 #library {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    text-align: center;
-    margin: 10px;
+  width: 100%;
+  margin: 0 0 2rem;
 }
 
 .game-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-    width: 100%;
-    max-width: 1200px;
-    padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  align-items: stretch;
 }
 
 .game-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  padding: 0.7rem;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.025)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.game-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 145, 0, 0.55);
+}
+
+.game-item a {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .game-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  border-radius: 14px;
+  transition: transform 0.3s ease;
 }
 
 .game-item img:hover {
-    transform: scale(1.05);
+  transform: scale(1.02);
 }
 .category {
-    margin: 15px;
+  margin: 0 0 1rem;
+  color: var(--text-color);
 }
 
 #latest {
-    display: flex; /* Flexbox can help with centering */
-    justify-content: center; /* Center the image horizontally */
-    margin-top: 20px;
-    margin-bottom: 20px;
+  display: flex; /* Flexbox can help with centering */
+  justify-content: center; /* Center the image horizontally */
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 #latest img {
-    max-width: 100vw; /* Ensures the image does not exceed the width of the viewport */
-    width: 100%; /* Makes the image responsive */
-    height: auto; /* Maintains the aspect ratio */
+  max-width: 100vw; /* Ensures the image does not exceed the width of the viewport */
+  width: 100%; /* Makes the image responsive */
+  height: auto; /* Maintains the aspect ratio */
 }
 
 th img {
-    width: 25%;
-    height: auto;
+  width: 25%;
+  height: auto;
 }
 
 table {
-    width: 80%;
-    border-collapse: collapse;
-    background-color: var(--background-color);
-    margin-top: 20px;
+  width: 80%;
+  border-collapse: collapse;
+  background-color: var(--background-color);
+  margin-top: 20px;
 }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
 }
 
 th {
-    background-color: var(--nav-bar-bg);
-    font-weight: bold;
+  background-color: var(--nav-bar-bg);
+  font-weight: bold;
 }
 
 tbody tr:nth-child(even) {
-    background-color: var(--tertiary-color);
+  background-color: var(--tertiary-color);
 }
 
 #signup-form {
-    margin-top: 70px;
+  margin-top: 70px;
 }
 
 #login-form {
-    margin-top: 70px;
+  margin-top: 70px;
 }
 
 #select-img {
-    transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 #select-img:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 #crown-img {
-    transition: transform 0.3s ease;
-}
-    
-#crown-img:hover {
-    transform: scale(1.05);
+  transition: transform 0.3s ease;
 }
 
+#crown-img:hover {
+  transform: scale(1.05);
+}
 
 /* Styles for screens smaller than 768px (Tablets and smaller) */
 @media (max-width: 768px) {
-    #nav-bar {
-        flex-direction: column; /* Stack navigation items vertically */
-        height: auto; /* Allow height to adjust based on content */
-    }
-    #select-img {
-        max-width: 40vw;
-        max-height: auto;
-    }
-    #crown-img {
-        max-width: 40vw;
-        max-height: auto;
-    }
+  #nav-bar {
+    flex-direction: column; /* Stack navigation items vertically */
+    height: auto; /* Allow height to adjust based on content */
+  }
+  #select-img {
+    max-width: 40vw;
+    max-height: auto;
+  }
+  #crown-img {
+    max-width: 40vw;
+    max-height: auto;
+  }
 
-    .button {
-        width: 50%; /* Make buttons full-width */
-        margin: 10px 0; /* Adjust margins for better spacing */
-    }
+  .button {
+    width: 50%; /* Make buttons full-width */
+    margin: 10px 0; /* Adjust margins for better spacing */
+  }
 
-    #home-options {
-        padding: 20px 0; /* Reduce padding */
-    }
+  #home-options {
+    padding: 20px 0; /* Reduce padding */
+  }
 
-    .game-grid {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 2fr)); /* Adjust grid items for smaller screens */
-    }
+  .game-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.9rem;
+  }
 
-    table {
-        width: 100%; /* Make table full width */
-    }
+  table {
+    width: 100%; /* Make table full width */
+  }
 
-    th img {
-        width: 50%; /* Make table header images smaller */
-    }
+  th img {
+    width: 50%; /* Make table header images smaller */
+  }
 
-    #signup-form, #login-form {
-        margin-top: 20px; /* Reduce margin for forms */
-    }
+  #signup-form,
+  #login-form {
+    margin-top: 20px; /* Reduce margin for forms */
+  }
 }
 
 /* Styles for screens smaller than 480px (Mobile Phones) */
 @media (max-width: 480px) {
-    body {
-        font-size: var(--font-size-small); /* Smaller font size for better readability */
-    }
+  body {
+    font-size: var(
+      --font-size-small
+    ); /* Smaller font size for better readability */
+  }
 
-    .button {
-        padding: 8px; /* Reduce button padding */
-        font-size: var(--font-size-small); /* Smaller font size for buttons */
-    }
+  .button {
+    padding: 8px; /* Reduce button padding */
+    font-size: var(--font-size-small); /* Smaller font size for buttons */
+  }
 
-    #nav-bar {
-        padding: 10px; /* Adjust padding for nav bar */
-    }
+  #nav-bar {
+    padding: 10px; /* Adjust padding for nav bar */
+  }
 
-    #home-options {
-        padding: 10px 0; /* Further reduce padding */
-    }
+  #home-options {
+    padding: 10px 0; /* Further reduce padding */
+  }
 
-    .game-grid {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 2fr)); /* Adjust grid items for smaller screens */
-    }
+  .game-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.7rem;
+  }
 
-    th img {
-        width: 100%; /* Make header images full width */
-    }
+  th img {
+    width: 100%; /* Make header images full width */
+  }
 }

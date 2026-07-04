@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-)mn95t!c)7p&5t+-q174x4%*$hhbl-k-o5zvz7ve2pcl-dv)_)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['hamster-games.onrender.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '::1', 'hamster-games.onrender.com']
 
 
 # Application definition
