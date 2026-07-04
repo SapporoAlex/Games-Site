@@ -1,43 +1,98 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-{% load static %}
-<head>
+  {% load static %}
+  <head>
     <!-- Standard Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/static/main/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/static/main/favicon-16x16.png">
-    
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/static/main/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/static/main/favicon-16x16.png"
+    />
+
     <!-- Apple Touch Icon (for iOS devices) -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/static/main/apple-touch-icon.png">
-    
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/static/main/apple-touch-icon.png"
+    />
+
     <!-- Android/Chrome Icon -->
-    <link rel="icon" type="image/png" sizes="192x192" href="/static/main/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="/static/main/android-chrome-512x512.png">
-    
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/static/main/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="/static/main/android-chrome-512x512.png"
+    />
+
     <!-- Fallback ICO file (for older browsers) -->
-    <link rel="shortcut icon" href="/static/main/favicon.ico">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="shortcut icon" href="/static/main/favicon.ico" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
     <title>Hamster Games</title>
-</head>
-<body>
-<span id="nav-bar">
-    <a href="{% url 'home' %}"><img src="{% static 'main/logo.png' %}" id="game-img"></a>
-    <h1 id"site-title">Hamster Games</h1>
-    {% if user.is_authenticated %}
-    <p>Welcome, {{ user.username }}! </p>
-    <a class="button" href="{% url 'logout' %}" id="logout-btn">Log out</a>
-    {% else %}
-    <a class="button" href="{% url 'login' %}" id="login-btn">Log in</a>
-    <a class="button" href="{% url 'signup' %}" id="signup-btn">Sign Up</a>
-    {% endif %}
-</span>
-<span id="latest">
-    <a href="{% url 'select_game' %}"><img src="{% static 'main/ports_latest.jpg' %}" id="latest-img"></a>
-</span>
-<span id="home-options">
-    <a href="{% url 'select_game' %}"><img src="{% static 'main/game.jpg' %}" id="select-img"></a>
-    <a href="{% url 'leaderboard' %}"><img src="{% static 'main/crown.jpg' %}" id="crown-img"></a>
-</span>
-</body>
+  </head>
+  <body>
+    <header id="nav-bar" class="site-header">
+      <div class="site-header__brand">
+        <a href="{% url 'home' %}" class="site-header__logo-link">
+          <img
+            src="{% static 'main/logo.png' %}"
+            id="game-img"
+            alt="Hamster Games logo"
+          />
+        </a>
+        <h1 id="site-title">Hamster Games</h1>
+      </div>
+      <div class="site-header__actions">
+        {% if user.is_authenticated %}
+        <p class="site-header__welcome">Welcome, {{ user.username }}!</p>
+        <a
+          class="button site-header__button"
+          href="{% url 'logout' %}"
+          id="logout-btn"
+          >Log out</a
+        >
+        {% else %}
+        <a
+          class="button site-header__button"
+          href="{% url 'login' %}"
+          id="login-btn"
+          >Log in</a
+        >
+        <a
+          class="button site-header__button"
+          href="{% url 'signup' %}"
+          id="signup-btn"
+          >Sign Up</a
+        >
+        {% endif %}
+      </div>
+    </header>
+    <span id="latest">
+      <a href="{% url 'select_game' %}"
+        ><img src="{% static 'main/ports_latest.jpg' %}" id="latest-img"
+      /></a>
+    </span>
+    <span id="home-options">
+      <a href="{% url 'select_game' %}"
+        ><img src="{% static 'main/game.jpg' %}" id="select-img"
+      /></a>
+      <a href="{% url 'leaderboard' %}"
+        ><img src="{% static 'main/crown.jpg' %}" id="crown-img"
+      /></a>
+    </span>
+  </body>
 </html>
