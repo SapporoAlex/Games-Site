@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-    <span id="nav-bar">
+    <span id="nav-bar" class="site-header site-header--full">
         <a href="{% url 'home' %}"><img src="{% static 'main/logo.png' %}" id="game-img"></a>
         <h1>Hamster Games</h1>
         {% if user.is_authenticated %}
